@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berry & Brew - Cake & Dessert</title>
+  <link rel="stylesheet" href="css/database.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff8f6;
+      color: #333;
+    }
+
+    /* ===== THANH TRÊN CÙNG (LOGIN + GIỎ HÀNG) ===== */
+    .top-bar {
+      background-color: #ffe6eb;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 15px;
+      padding: 6px 30px;
+      font-size: 14px;
+    }
+
+    .top-bar a {
+      text-decoration: none;
+      color: #d6336c;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .top-bar a:hover {
+      color: #ff6f91;
+    }
+
+    .cart-btn {
+      background-color: #ff8fa3;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .cart-btn:hover {
+      background-color: #ff6f91;
+    }
+
+    /* ===== HEADER CHÍNH ===== */
+    .main-header {
+      background-color: #ffccd5;
+      text-align: center;
+      padding: 15px 0;
+    }
+
+    .logo {
+      width: 120px;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
+    }
+
+    /* ===== THANH TÌM KIẾM ===== */
+    .search-box {
+      margin-top: 10px;
+      position: relative;
+    }
+
+    .search-box input {
+      padding: 8px 15px;
+      border-radius: 25px;
+      border: 1px solid #ccc;
+      outline: none;
+      width: 250px;
+      transition: 0.3s;
+    }
+
+    .search-box input:focus {
+      border-color: #ff6f91;
+      width: 300px;
+    }
+
+    /* ===== THANH ĐIỀU HƯỚNG (MENU) ===== */
+    .navbar {
+      background-color: #ffb6c1;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 10px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #8b0000;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #fff;
+    }
+
+    /* ===== DANH MỤC BÊN TRÁI ===== */
+    .main-content {
+      display: flex;
+      max-width: 1200px;
+      margin: 30px auto;
+      gap: 20px;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #ffe6eb;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .sidebar h3 {
+      text-align: center;
+      color: #d6336c;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      padding: 8px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .sidebar li:hover {
+      background-color: #ffb6c1;
+      color: white;
+    }
+
+    /* ===== SẢN PHẨM ===== */
+    .product-area {
+      flex: 1;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .product-item {
+      background-color: #ffe6eb;
+      border-radius: 10px;
+      text-align: center;
+      padding: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .product-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-item img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .price {
+      color: #d6336c;
+      font-weight: bold;
+    }
+
+    .product-item button {
+      background-color: #ff8fa3;
+      border: none;
+      color: white;
+      border-radius: 20px;
+      padding: 8px 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .product-item button:hover {
+      background-color: #ff6f91;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      color: #777;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- THANH TRÊN CÙNG -->
+  <div class="top-bar">
+    <a href="#">Đăng nhập</a> |
+    <a href="#">Đăng ký</a>
+    <a href="giohang.html" class="cart-btn">🛒 Giỏ hàng</a>
+  </div>
+
+  <!-- HEADER CHÍNH -->
+  <header class="main-header">
+    <img src="image/LOGO.jpg" class="logo" alt="Berry & Brew">
+    <div class="search-box">
+      <input type="text" placeholder="🔍 Tìm kiếm sản phẩm...">
+    </div>
+  </header>
+
+  <!-- THANH MENU -->
+  <nav class="navbar">
+    <a href="Webbandoandouong.html">Trang Chủ</a>
+    <a href="gioithieu.html">Giới Thiệu</a>
+    <a href="sanpham.html">Sản Phẩm</a>
+  </nav>
+
+  <!-- DANH MỤC -->
+  <div class="main-content">
+    <aside class="sidebar">
+      <h3>📦 Danh mục sản phẩm</h3>
+      <ul>
+        <li>Tất cả</li>
+        <li>Snack</li>
+        <li>Bánh Mì</li>
+        <li>Bánh Tráng</li>
+        <li>Xúc Xích</li>
+        <li>Nước Ngọt</li>
+        <li>Nước Lọc</li>
+        <li>Cơm Cháy</li>
+      </ul>
+
+      <div class="price-filter">
+        <label>💰 Chọn khoảng giá</label><br>
+        <input type="number" placeholder="Từ" min="0"> 
+        <span> - </span>
+        <input type="number" placeholder="Đến" min="0"><br>
+        <button>Lọc giá</button>
+      </div>
+    </aside>
+
+    <!-- KHU VỰC SẢN PHẨM -->
+    <section class="product-area">
+      <div class="product-grid">
+        <!-- Sản phẩm sẽ thêm ở đây -->
+      </div>
+    </section>
+  </div>
+
+  <footer>© 2025 Berry & Brew - All Rights Reserved</footer>
+
+</body>
+</html>

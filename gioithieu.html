@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berry & Brew</title>
+  <link rel="stylesheet" href="css/database.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* HEADER CHÍNH */
+    header {
+      background-color: #ffb6c1;
+      color: #0a0a0a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 40px;
+    }
+
+    .logo {
+      width: 140px;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
+    }
+
+    .header-center {
+      flex: 1;
+      text-align: center;
+    }
+
+    .header-center p {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    /* THANH TÌM KIẾM + GIỎ HÀNG */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 20px;
+      padding: 5px 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      padding: 5px 10px;
+      font-size: 14px;
+      width: 150px;
+    }
+
+    .search-box button {
+      background: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .search-box button:hover {
+      background: #ff4d6d;
+    }
+
+    .cart-btn {
+      background: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .cart-btn:hover {
+      background: #ff4d6d;
+    }
+
+    /* NAV */
+    nav {
+      background-color: #ffb6d5;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ff6600;
+    }
+
+    /* NỘI DUNG */
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #ff6600;
+      border-bottom: 2px solid #ff6600;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .products img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      background-color: #333;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <img src="image/LOGO.jpg" alt="Berry & Brew Logo" class="logo">
+    <div class="header-center">
+      <p>Nơi mang đến cho bạn những sản phẩm chất lượng nhất!</p>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <input type="text" placeholder="Tìm kiếm sản phẩm...">
+        <button>Tìm</button>
+      </div>
+      <button class="cart-btn">🛒 Giỏ hàng</button>
+    </div>
+  </header>
+
+  <nav>
+    <a href="Webbandoandouong.html">Trang chủ</a>
+    <a href="gioithieu.html">Giới thiệu</a>
+    <a href="sanpham.html">Sản phẩm</a>
+  </nav>
+
+  <div class="container">
+    <section class="intro">
+      <h2>BERRY&BREW là gì?</h2>
+      <p>Xin chào các vị khách đáng yêu của Berry & Brew — Thiên đường của đồ ăn và đồ uống! 😋</p>
+      <p>Cửa hàng Berry & Brew là nơi hội tụ những món ăn vặt siêu ngon, siêu rẻ, nơi hội tụ hương vị tuổi trẻ.</p>
+      <p>Được thành lập năm 2025, nơi đây hướng đến khách hàng là thế hệ trẻ năng động, cũng như hầu hết các vị khách hàng đến với BERRY & BREW.</p>
+      <p> Chúng tôi luôn muốn mang đến cho khách hàng những món ăn vặt chất lượng và an toàn , có nguồn gốc rõ ràng .</p>
+      <img src="image/LOGO.jpg" alt="Berry & Brew">
+    </section>
+
+    <section class="products">
+      <h2>Tìm Kiếm Dễ Dàng Và Tiện Lợi</h2>
+      <p>Chúng tôi muốn mang đến sự hiện đại và tiện lợi nhất để quý khách hàng của chúng tôi không phải gặp sự cố trong việc tìm kiếm các sản phẩm bằng cách thủ công.</p>
+      <p>Hơn nữa chúng tôi đã chia nhỏ các danh mục chi tiết nhất để khách hàng có thể tìm kiếm nhanh chóng.</p>
+    </section>
+
+    <h2>Phân Loại Rõ Ràng</h2>
+    <section class="categories">
+      <p>Chúng tôi đã phân loại rõ ràng các mặt hàng, sản phẩm để các khách yêu của shop có trải nghiệm tuyệt vời nhất!!</p>
+      <ul>
+        <li>🍞 Bánh mì tươi: Bánh mì Kinh Đô, Bánh mì Olive, Bánh mì Bảo Ngọc</li>
+        <li>🍟 Snack: Snack phô mai, Snack tôm cay</li>
+        <li>🥤 Nước ngọt: Coca Cola, Pepsi</li>
+        <li>💧 Nước lọc: Aquafina, Lavie</li>
+      </ul>
+    </section>
+
+    <section class="contact">
+      <h2>Liên hệ</h2>
+      <p>📍 Địa chỉ: 69/68 Đặng Thùy Trâm, P. Bình Lợi Trung, TP.HCM</p>
+      <p>📞 Điện thoại: 02222222222</p>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 Berry & Brew - All Rights Reserved</p>
+  </footer>
+</body>
+</html>

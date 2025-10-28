@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giỏ hàng - Berry & Brew</title>
+  <link rel="stylesheet" href="css/database.css">
+</head>
+<body>
+  <header class="main-header">
+    <img src="image/LOGO.jpg" class="logo" alt="Berry & Brew">
+  </header>
+
+  <nav class="navbar">
+    <a href="Webbandoandouong.html">Trang Chủ</a>
+    <a href="gioithieu.html">Giới Thiệu</a>
+    <a href="sanpham.html">Sản Phẩm</a>
+  </nav>
+
+  <div class="cart-container">
+    <h2>🛒 Giỏ hàng của bạn</h2>
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>Hình ảnh</th>
+          <th>Tên sản phẩm</th>
+          <th>Giá</th>
+          <th>Số lượng</th>
+          <th>Thành tiền</th>
+          <th>Xóa</th>
+        </tr>
+      </thead>
+      <tbody id="cart-body"></tbody>
+    </table>
+
+    <div class="cart-summary">
+      <h3>Tổng cộng: <span id="cart-total">0</span>đ</h3>
+      <a href="thanhtoan.html" class="checkout-btn">Thanh toán</a>
+    </div>
+  </div>
+
+  <footer>© 2025 Berry & Brew - All Rights Reserved</footer>
+
+  <script>
+    // Hiển thị giỏ hàng
+    function loadCart() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const body = document.getElementById("cart-body");
+      const total = document.getElementById("cart-total");
+      body.innerHTML = "";
+      let tong = 0;
+
+      cart.forEach((item, index) => {
+        let thanhTien = item.price * item.quantity;
+        tong += thanhTien;
+        body.innerHTML += `
+          <tr>
+            <td><img src="${item.img}" alt="${item.name}" width="60"></td>
+            <td>${item.name}</td>
+            <td>${item.price.toLocaleString()}đ</td>
+            <td>${item.quantity}</td>
+            <td>${thanhTien.toLocaleString()}đ</td>
+            <td><button onclick="xoaSanPham(${index})">Xóa</button></td>
+          </tr>
+        `;
+      });
+
+      total.textContent = tong.toLocaleString();
+    }
+
+    // Xóa sản phẩm
+    function xoaSanPham(index) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+    }
+
+    // Khi tải trang, hiển thị giỏ hàng
+    window.onload = loadCart;
+  </script>
+</body>
+</html>

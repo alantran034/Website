@@ -1,0 +1,220 @@
+/* Toàn trang */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff8f6; /* Màu nền kem nhẹ */
+  color: #4a2c2a;
+}
+
+/* Thanh chào */
+.header-top-banner {
+  background-image: linear-gradient(to right, #f4a9b8, #ffccd5);
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-top-banner .save-box {
+  background-color: white;
+  color: #e2001a;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.header-top-banner button {
+  background-color: #e26a8a;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.header-top-banner button:hover {
+  background-color: #c94b6b;
+}
+
+/* Logo chính giữa */
+.main-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-color: #fff5f7;
+  border-bottom: 2px solid #f7c4c4;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+.logo {
+  height: 100px;
+  border-radius: 10px;
+}
+
+/* Thanh menu */
+.navbar {
+  background-color: #f4a8a8;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 12px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 17px;
+  padding: 12px 25px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.navbar a:hover {
+  background-color: #e26a8a;
+}
+
+/* Hiệu ứng mượt mà */
+* {
+  transition: all 0.3s ease;
+}
+
+/* --- Giỏ hàng --- */
+.cart-container {
+  width: 80%;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.cart-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #d66c6c;
+}
+
+/* --- Bảng sản phẩm --- */
+#cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#cart-table th,
+#cart-table td {
+  border-bottom: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#cart-table th {
+  background-color: #ffe4e4;
+  color: #444;
+}
+
+#cart-table tr:hover {
+  background-color: #fff7f7;
+}
+
+#cart-table img {
+  border-radius: 6px;
+}
+
+/* --- Nút xóa --- */
+#cart-table button {
+  background-color: #ff7b7b;
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#cart-table button:hover {
+  background-color: #e25858;
+}
+
+/* --- Tổng kết giỏ hàng --- */
+.cart-summary {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.cart-summary h3 {
+  font-size: 20px;
+  color: #222;
+}
+
+.checkout-btn {
+  background-color: #d66c6c;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.checkout-btn:hover {
+  background-color: #b55555;
+}
+
+/* --- Trang thanh toán --- */
+.checkout-container {
+  width: 60%;
+  margin: 80px auto;
+  text-align: center;
+  background: #fff5f5;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.checkout-container h2 {
+  color: #c15555;
+}
+.checkout-container p {
+  font-size: 17px;
+  margin: 15px 0 25px;
+  color: #444;
+}
+
+/* --- Bộ lọc giá --- */
+.filter-container {
+  text-align: center;
+  margin: 20px 0;
+  font-weight: bold;
+  color: #d6336c;
+}
+
+#price-filter {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 2px solid #ff8fa3;
+  background-color: #fff0f5;
+  color: #8b0000;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+#price-filter:hover {
+  background-color: #ffe6eb;
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #f4a8a8;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  margin-top: 40px;
+}
