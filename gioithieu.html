@@ -1,209 +1,347 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Giới thiệu - Berry & Brew</title>
-  <link rel="stylesheet" href="css/database.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff8f6;
-      color: #333;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giới thiệu - Berry & Brew</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff8f6;
+    color: #333;
+  }
 
-    /* ===== THANH TRÊN CÙNG ===== */
-    .top-bar {
-      background-color: #ffe6eb;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 15px;
-      padding: 6px 30px;
-      font-size: 14px;
-    }
+  /* ===== THANH TRÊN CÙNG ===== */
+  .top-bar {
+    background: #ffe6eb;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    padding: 6px 30px;
+    font-size: 14px;
+  }
 
-    .top-bar a {
-      text-decoration: none;
-      color: #d6336c;
-      font-weight: 500;
-      transition: 0.3s;
-    }
+  .top-bar a {
+    text-decoration: none;
+    color: #d6336c;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+  }
 
-    .top-bar a:hover {
-      color: #ff6f91;
-    }
+  .top-bar a:hover {
+    color: #ff6f91;
+  }
 
-    .cart-btn {
-      background-color: #ff8fa3;
-      color: white;
-      padding: 6px 12px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
-    }
+  .cart-btn {
+    background: #ff8fa3;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+  }
 
-    .cart-btn:hover {
-      background-color: #ff6f91;
-    }
+  .cart-btn:hover {
+    background: #ff6f91;
+  }
 
-    /* ===== HEADER ===== */
-    .main-header {
-      background-color: #ffccd5;
-      text-align: center;
-      padding: 15px 0;
-    }
+  /* ===== HEADER ===== */
+  .main-header {
+    background: #ffccd5;
+    text-align: center;
+    padding: 15px 0;
+  }
 
-    .logo {
-      width: 120px;
-      border-radius: 50%;
-      box-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
-    }
+  .logo {
+    width: 120px;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255,182,193,0.6);
+  }
 
-    .search-box {
-      margin-top: 10px;
-      position: relative;
-    }
+  .search-box {
+    margin-top: 10px;
+    position: relative;
+  }
 
-    .search-box input {
-      padding: 8px 15px;
-      border-radius: 25px;
-      border: 1px solid #ccc;
-      outline: none;
-      width: 250px;
-      transition: 0.3s;
-    }
+  .search-box input {
+    padding: 8px 15px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 250px;
+    transition: 0.3s;
+  }
 
-    .search-box input:focus {
-      border-color: #ff6f91;
-      width: 300px;
-    }
+  .search-box input:focus {
+    border-color: #ff6f91;
+    width: 300px;
+  }
 
-    /* ===== MENU ===== */
-    .navbar {
-      background-color: #ffb6c1;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 10px 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
+  /* ===== MENU ===== */
+  .navbar {
+    background: #ffb6c1;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 10px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
 
-    .navbar a {
-      text-decoration: none;
-      color: #8b0000;
-      font-weight: 600;
-      transition: 0.3s;
-    }
+  .navbar a {
+    text-decoration: none;
+    color: #8b0000;
+    font-weight: 600;
+    transition: 0.3s;
+  }
 
-    .navbar a:hover {
-      color: #fff;
-    }
+  .navbar a:hover {
+    color: #fff;
+  }
 
-    /* ===== PHẦN GIỚI THIỆU ===== */
-    .about-section {
-      max-width: 900px;
-      margin: 40px auto;
-      background-color: #ffe6eb;
-      padding: 30px 40px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;
-      line-height: 1.8;
-    }
+  /* ===== NỘI DUNG GIỚI THIỆU ===== */
+  .about-section {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #ffe6eb;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    line-height: 1.8;
+  }
 
-    .about-section h2 {
-      color: #d6336c;
-      margin-bottom: 20px;
-      font-size: 26px;
-    }
+  .about-section h2 {
+    color: #d6336c;
+    margin-bottom: 20px;
+    font-size: 26px;
+  }
 
-    .about-section p {
-      font-size: 16px;
-      color: #555;
-    }
+  .about-section p {
+    font-size: 16px;
+    color: #555;
+  }
 
-    .about-section img {
-      width: 80%;
-      max-width: 400px;
-      border-radius: 15px;
-      margin-top: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
+  .about-section img {
+    width: 80%;
+    max-width: 400px;
+    border-radius: 15px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
 
-    footer {
-      text-align: center;
-      padding: 15px;
-      color: #777;
-      font-size: 14px;
-      margin-top: 30px;
-    }
-  </style>
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 15px;
+    color: #777;
+    font-size: 14px;
+    margin-top: 30px;
+  }
+
+  /* ===== MODAL ===== */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    width: 400px;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  .modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #d6336c;
+  }
+
+  .modal-content input[type="text"],
+  .modal-content input[type="password"],
+  .modal-content input[type="email"] {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  .modal-content .btn {
+    width: 100%;
+    background: #ff8fa3;
+    color: white;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .modal-content .btn:hover {
+    background: #ff6f91;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .modal-content label {
+    font-weight: 500;
+  }
+
+  .modal-content a {
+    text-decoration: none;
+    color: #d6336c;
+  }
+</style>
 </head>
 <body>
 
-  <!-- THANH TRÊN CÙNG -->
-  <div class="top-bar">
-    <a href="#">Đăng nhập</a> |
-    <a href="#">Đăng ký</a>
-    <a href="giohang.html" class="cart-btn">🛒 Giỏ hàng</a>
+<!-- Thanh trên cùng -->
+<div class="top-bar">
+  <a id="loginLink">Đăng nhập</a> |
+  <a id="registerLink">Đăng ký</a>
+  <a href="giohang.html" class="cart-btn">🛒 Giỏ hàng</a>
+</div>
+
+<!-- Header chính -->
+<header class="main-header">
+  <img src="image/LOGO.jpg" class="logo" alt="Berry & Brew">
+  <div class="search-box">
+    <input type="text" placeholder="🔍 Tìm kiếm sản phẩm...">
   </div>
+</header>
 
-  <!-- HEADER -->
-  <header class="main-header">
-    <img src="image/LOGO.jpg" class="logo" alt="Berry & Brew">
-    <div class="search-box">
-      <input type="text" placeholder="🔍 Tìm kiếm sản phẩm...">
-    </div>
-  </header>
+<!-- Menu -->
+<nav class="navbar">
+  <a href="Webbandoandouong.html">Trang Chủ</a>
+  <a href="gioithieu.html">Giới Thiệu</a>
+  <a href="sanpham.html">Sản Phẩm</a>
+</nav>
 
-  <!-- MENU -->
-  <nav class="navbar">
-    <a href="Webbandoandouong.html">Trang Chủ</a>
-    <a href="gioithieu.html">Giới Thiệu</a>
-    <a href="sanpham.html">Sản Phẩm</a>
-  </nav>
+<!-- Phần giới thiệu -->
+<section class="about-section">
+  <h2>🍰 Chào mừng đến với Berry & Brew 🍓</h2>
+  <p>
+    Berry & Brew là cửa hàng chuyên cung cấp các loại bánh và đồ uống theo gu của bạn.
+    Với niềm đam mê trong từng chiếc bánh và ly trà dâu, chúng tôi mong muốn mang lại những phút giây ngọt ngào, thư giãn cho khách hàng thân yêu.
+  </p>
+  <img src="image/LOGO.jpg" alt="Berry & Brew">
+  <h2>BERRY&BREW là gì?</h2>
+  <p>Xin chào các vị khách đáng yêu của Berry & Brew — Thiên đường của đồ ăn và đồ uống! 😋</p>
+  <p>Cửa hàng Berry & Brew là nơi hội tụ những món ăn vặt siêu ngon, siêu rẻ, nơi hội tụ hương vị tuổi trẻ.</p>
+  <p>Được thành lập năm 2025, nơi đây hướng đến khách hàng là thế hệ trẻ năng động.</p>
+  <p>Chúng tôi luôn muốn mang đến cho khách hàng những món ăn vặt chất lượng và an toàn, có nguồn gốc rõ ràng.</p>
 
-  <!-- PHẦN GIỚI THIỆU -->
-  <section class="about-section">
-    <h2>🍰 Chào mừng đến với Berry & Brew 🍓</h2>
-    <p>
-      Berry & Brew là cửa hàng chuyên cung cấp các loại bánh  và đồ uống  theo gu của bạn.
-      Với niềm đam mê trong từng chiếc bánh và ly trà dâu, chúng tôi mong muốn mang lại những phút giây ngọt ngào,
-      thư giãn cho khách hàng thân yêu.
-    </p>
-    <div class="container">
-    <section class="intro">
-      <h2>BERRY&BREW là gì?</h2>
-      <p>Xin chào các vị khách đáng yêu của Berry & Brew — Thiên đường của đồ ăn và đồ uống! 😋</p>
-      <p>Cửa hàng Berry & Brew là nơi hội tụ những món ăn vặt siêu ngon, siêu rẻ, nơi hội tụ hương vị tuổi trẻ.</p>
-      <p>Được thành lập năm 2025, nơi đây hướng đến khách hàng là thế hệ trẻ năng động, cũng như hầu hết các vị khách hàng đến với BERRY & BREW.</p>
-      <p> Chúng tôi luôn muốn mang đến cho khách hàng những món ăn vặt chất lượng và an toàn , có nguồn gốc rõ ràng .</p>
-      <img src="image/LOGO.jpg" alt="Berry & Brew">
-    </section>
+  <h2>Tìm Kiếm Dễ Dàng Và Tiện Lợi</h2>
+  <p>Chúng tôi muốn mang đến sự hiện đại và tiện lợi nhất để quý khách hàng không phải gặp sự cố trong việc tìm kiếm sản phẩm bằng cách thủ công.</p>
 
-    <section class="products">
-      <h2>Tìm Kiếm Dễ Dàng Và Tiện Lợi</h2>
-      <p>Chúng tôi muốn mang đến sự hiện đại và tiện lợi nhất để quý khách hàng của chúng tôi không phải gặp sự cố trong việc tìm kiếm các sản phẩm bằng cách thủ công.</p>
-      <p>Hơn nữa chúng tôi đã chia nhỏ các danh mục chi tiết nhất để khách hàng có thể tìm kiếm nhanh chóng.</p>
-    </section>
+  <h2>Phân Loại Rõ Ràng</h2>
+  <p>Chúng tôi đã phân loại rõ ràng các mặt hàng, sản phẩm để khách hàng có trải nghiệm tuyệt vời nhất!</p>
+  <ul>
+    <li>🍞 Bánh mì tươi: Bánh mì Kinh Đô, Bánh mì Olive, Bánh mì Bảo Ngọc</li>
+    <li>🍟 Snack: Snack phô mai, Snack tôm cay</li>
+    <li>🥤 Nước ngọt: Coca Cola, Pepsi</li>
+    <li>💧 Nước lọc: Aquafina, Lavie</li>
+  </ul>
 
-    <h2>Phân Loại Rõ Ràng</h2>
-    <section class="categories">
-      <p>Chúng tôi đã phân loại rõ ràng các mặt hàng, sản phẩm để các khách yêu của shop có trải nghiệm tuyệt vời nhất!!</p>
-      <ul>
-        <li>🍞 Bánh mì tươi: Bánh mì Kinh Đô, Bánh mì Olive, Bánh mì Bảo Ngọc</li>
-        <li>🍟 Snack: Snack phô mai, Snack tôm cay</li>
-        <li>🥤 Nước ngọt: Coca Cola, Pepsi</li>
-        <li>💧 Nước lọc: Aquafina, Lavie</li>
-      </ul>
-    </section>
+  <h2>Liên hệ</h2>
+  <p>📍 Địa chỉ: 69/68 Đặng Thùy Trâm, P. Bình Lợi Trung, TP.HCM</p>
+  <p>📞 Điện thoại: 02222222222</p>
+</section>
 
-    <section class="contact">
-      <h2>Liên hệ</h2>
-      <p>📍 Địa chỉ: 69/68 Đặng Thùy Trâm, P. Bình Lợi Trung, TP.HCM</p>
-      <p>📞 Điện thoại: 02222222222</p>
-    </section>
+<!-- Footer -->
+<footer>© 2025 Berry & Brew - All Rights Reserved</footer>
+
+<!-- Modal Đăng nhập -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal('loginModal')">&times;</span>
+    <h2>Đăng nhập</h2>
+    <form onsubmit="login(event)">
+      <label>Tên tài khoản hoặc email *</label>
+      <input type="text" id="username" placeholder="Nhập tài khoản hoặc email" required>
+      <label>Mật khẩu *</label>
+      <input type="password" id="password" placeholder="Nhập mật khẩu" required>
+      <label><input type="checkbox"> Ghi nhớ mật khẩu</label>
+      <button type="submit" class="btn">Đăng nhập</button>
+      <p style="text-align:center;"><a href="#">Quên mật khẩu?</a></p>
+    </form>
   </div>
+</div>
+
+<!-- Modal Đăng ký -->
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal('registerModal')">&times;</span>
+    <h2>Đăng ký</h2>
+    <form onsubmit="register(event)">
+      <label>Tên tài khoản *</label>
+      <input type="text" id="regUsername" placeholder="Nhập tên tài khoản" required>
+      <label>Email *</label>
+      <input type="email" id="regEmail" placeholder="Nhập email" required>
+      <label>Mật khẩu *</label>
+      <input type="password" id="regPassword" placeholder="Nhập mật khẩu" required>
+      <button type="submit" class="btn">Đăng ký</button>
+    </form>
+  </div>
+</div>
+
+<script>
+const loginLink = document.getElementById('loginLink');
+const registerLink = document.getElementById('registerLink');
+
+loginLink.onclick = e => {
+  e.preventDefault();
+  document.getElementById('loginModal').style.display = 'flex';
+}
+
+registerLink.onclick = e => {
+  e.preventDefault();
+  document.getElementById('registerModal').style.display = 'flex';
+}
+
+function closeModal(id){
+  document.getElementById(id).style.display = 'none';
+}
+
+window.onclick = function(event){
+  if(event.target.classList.contains('modal')){
+    event.target.style.display = 'none';
+  }
+}
+
+function login(event){
+  event.preventDefault();
+  alert("Đăng nhập thành công (demo)");
+  closeModal('loginModal');
+}
+
+function register(event){
+  event.preventDefault();
+  alert("Đăng ký thành công (demo)");
+  closeModal('registerModal');
+}
+</script>
+
+</body>
+</html>
