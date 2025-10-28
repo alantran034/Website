@@ -3,167 +3,178 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Berry & Brew</title>
+  <title>Giới thiệu - Berry & Brew</title>
   <link rel="stylesheet" href="css/database.css">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background-color: #f9f9f9;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff8f6;
       color: #333;
     }
 
-    /* HEADER CHÍNH */
-    header {
-      background-color: #ffb6c1;
-      color: #0a0a0a;
+    /* ===== THANH TRÊN CÙNG ===== */
+    .top-bar {
+      background-color: #ffe6eb;
       display: flex;
+      justify-content: flex-end;
       align-items: center;
-      justify-content: space-between;
-      padding: 10px 40px;
-    }
-
-    .logo {
-      width: 140px;
-      border-radius: 50%;
-      box-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
-    }
-
-    .header-center {
-      flex: 1;
-      text-align: center;
-    }
-
-    .header-center p {
-      margin: 0;
-      font-weight: 600;
-    }
-
-    /* THANH TÌM KIẾM + GIỎ HÀNG */
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .search-box {
-      display: flex;
-      align-items: center;
-      background: white;
-      border-radius: 20px;
-      padding: 5px 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-
-    .search-box input {
-      border: none;
-      outline: none;
-      padding: 5px 10px;
+      gap: 15px;
+      padding: 6px 30px;
       font-size: 14px;
-      width: 150px;
     }
 
-    .search-box button {
-      background: #ff69b4;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      padding: 6px 12px;
-      cursor: pointer;
-      font-weight: 600;
+    .top-bar a {
+      text-decoration: none;
+      color: #d6336c;
+      font-weight: 500;
+      transition: 0.3s;
     }
 
-    .search-box button:hover {
-      background: #ff4d6d;
+    .top-bar a:hover {
+      color: #ff6f91;
     }
 
     .cart-btn {
-      background: #ff69b4;
+      background-color: #ff8fa3;
       color: white;
-      border: none;
-      border-radius: 20px;
       padding: 6px 12px;
-      cursor: pointer;
-      font-weight: 600;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 500;
       transition: 0.3s;
     }
 
     .cart-btn:hover {
-      background: #ff4d6d;
+      background-color: #ff6f91;
     }
 
-    /* NAV */
-    nav {
-      background-color: #ffb6d5;
-      padding: 10px 0;
+    /* ===== HEADER ===== */
+    .main-header {
+      background-color: #ffccd5;
       text-align: center;
+      padding: 15px 0;
     }
 
-    nav a {
-      color: white;
+    .logo {
+      width: 120px;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
+    }
+
+    .search-box {
+      margin-top: 10px;
+      position: relative;
+    }
+
+    .search-box input {
+      padding: 8px 15px;
+      border-radius: 25px;
+      border: 1px solid #ccc;
+      outline: none;
+      width: 250px;
+      transition: 0.3s;
+    }
+
+    .search-box input:focus {
+      border-color: #ff6f91;
+      width: 300px;
+    }
+
+    /* ===== MENU ===== */
+    .navbar {
+      background-color: #ffb6c1;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 10px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .navbar a {
       text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
+      color: #8b0000;
+      font-weight: 600;
+      transition: 0.3s;
     }
 
-    nav a:hover {
-      color: #ff6600;
+    .navbar a:hover {
+      color: #fff;
     }
 
-    /* NỘI DUNG */
-    .container {
-      width: 90%;
-      max-width: 1000px;
-      margin: 30px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    /* ===== PHẦN GIỚI THIỆU ===== */
+    .about-section {
+      max-width: 900px;
+      margin: 40px auto;
+      background-color: #ffe6eb;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      line-height: 1.8;
     }
 
-    h2 {
-      color: #ff6600;
-      border-bottom: 2px solid #ff6600;
-      display: inline-block;
-      padding-bottom: 5px;
+    .about-section h2 {
+      color: #d6336c;
+      margin-bottom: 20px;
+      font-size: 26px;
     }
 
-    .products img {
-      width: 100%;
-      border-radius: 10px;
+    .about-section p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .about-section img {
+      width: 80%;
+      max-width: 400px;
+      border-radius: 15px;
+      margin-top: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     footer {
       text-align: center;
-      padding: 15px 0;
-      background-color: #333;
-      color: white;
+      padding: 15px;
+      color: #777;
+      font-size: 14px;
       margin-top: 30px;
     }
   </style>
 </head>
 <body>
+
+  <!-- THANH TRÊN CÙNG -->
+  <div class="top-bar">
+    <a href="#">Đăng nhập</a> |
+    <a href="#">Đăng ký</a>
+    <a href="giohang.html" class="cart-btn">🛒 Giỏ hàng</a>
+  </div>
+
+  <!-- HEADER -->
   <header class="main-header">
-    <img src="image/LOGO.jpg" alt="Berry & Brew Logo" class="logo">
-    <div class="header-center">
-      <p>Nơi mang đến cho bạn những sản phẩm chất lượng nhất!</p>
-    </div>
-    <div class="header-right">
-      <div class="search-box">
-        <input type="text" placeholder="Tìm kiếm sản phẩm...">
-        <button>Tìm</button>
-      </div>
-      <button class="cart-btn">🛒 Giỏ hàng</button>
+    <img src="image/LOGO.jpg" class="logo" alt="Berry & Brew">
+    <div class="search-box">
+      <input type="text" placeholder="🔍 Tìm kiếm sản phẩm...">
     </div>
   </header>
 
-  <nav>
-    <a href="Webbandoandouong.html">Trang chủ</a>
-    <a href="gioithieu.html">Giới thiệu</a>
-    <a href="sanpham.html">Sản phẩm</a>
+  <!-- MENU -->
+  <nav class="navbar">
+    <a href="Webbandoandouong.html">Trang Chủ</a>
+    <a href="gioithieu.html">Giới Thiệu</a>
+    <a href="sanpham.html">Sản Phẩm</a>
   </nav>
 
-  <div class="container">
+  <!-- PHẦN GIỚI THIỆU -->
+  <section class="about-section">
+    <h2>🍰 Chào mừng đến với Berry & Brew 🍓</h2>
+    <p>
+      Berry & Brew là cửa hàng chuyên cung cấp các loại bánh  và đồ uống  theo gu của bạn.
+      Với niềm đam mê trong từng chiếc bánh và ly trà dâu, chúng tôi mong muốn mang lại những phút giây ngọt ngào,
+      thư giãn cho khách hàng thân yêu.
+    </p>
+    <div class="container">
     <section class="intro">
       <h2>BERRY&BREW là gì?</h2>
       <p>Xin chào các vị khách đáng yêu của Berry & Brew — Thiên đường của đồ ăn và đồ uống! 😋</p>
@@ -196,9 +207,3 @@
       <p>📞 Điện thoại: 02222222222</p>
     </section>
   </div>
-
-  <footer>
-    <p>© 2025 Berry & Brew - All Rights Reserved</p>
-  </footer>
-</body>
-</html>
