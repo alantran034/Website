@@ -162,23 +162,44 @@
     text-align: left;
     position: relative;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .modal-content h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: #d6336c;
+  }
+
+  .modal-content form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-content label {
+    font-weight: 500;
+    margin-bottom: 5px;
   }
 
   .modal-content input[type="text"],
   .modal-content input[type="password"],
   .modal-content input[type="email"] {
     width: 100%;
-    padding: 8px 10px;
-    border-radius: 6px;
+    padding: 10px 12px;
+    border-radius: 8px;
     border: 1px solid #ccc;
-    margin-top: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+
+  .modal-content input:focus {
+    border-color: #ff8fa3;
+    outline: none;
   }
 
   .modal-content .btn {
@@ -190,6 +211,9 @@
     border: none;
     cursor: pointer;
     font-weight: 600;
+    font-size: 15px;
+    margin-top: 10px;
+    transition: 0.3s;
   }
 
   .modal-content .btn:hover {
@@ -204,13 +228,19 @@
     cursor: pointer;
   }
 
-  .modal-content label {
-    font-weight: 500;
+  .modal-content p {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
   }
 
   .modal-content a {
     text-decoration: none;
     color: #d6336c;
+  }
+
+  .modal-content a:hover {
+    text-decoration: underline;
   }
 </style>
 </head>
@@ -223,7 +253,7 @@
   <a href="giohang.html" class="cart-btn">🛒 Giỏ hàng</a>
 </div>
 
-<!-- Header chính -->
+<!-- Header -->
 <header class="main-header">
   <img src="image/LOGO.jpg" class="logo" alt="Berry & Brew">
   <div class="search-box">
@@ -238,7 +268,7 @@
   <a href="sanpham.html">Sản Phẩm</a>
 </nav>
 
-<!-- Phần giới thiệu -->
+<!-- Nội dung -->
 <section class="about-section">
   <h2>🍰 Chào mừng đến với Berry & Brew 🍓</h2>
   <p>
@@ -284,7 +314,7 @@
       <input type="password" id="password" placeholder="Nhập mật khẩu" required>
       <label><input type="checkbox"> Ghi nhớ mật khẩu</label>
       <button type="submit" class="btn">Đăng nhập</button>
-      <p style="text-align:center;"><a href="#">Quên mật khẩu?</a></p>
+      <p><a href="#">Quên mật khẩu?</a></p>
     </form>
   </div>
 </div>

@@ -24,15 +24,11 @@
   }
 
   .top-bar a {
-    cursor: pointer;
     text-decoration: none;
     color: #d6336c;
     font-weight: 500;
     transition: 0.3s;
-  }
-
-  .top-bar a:hover {
-    color: #ff6f91;
+    cursor: pointer;
   }
 
   .cart-btn {
@@ -41,16 +37,10 @@
     padding: 6px 12px;
     border-radius: 20px;
     text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
   }
 
-  .cart-btn:hover {
-    background: #ff6f91;
-  }
-
-  /* Header chính */
-  .main-header {
+  /* Header */
+  header {
     background: #ffccd5;
     text-align: center;
     padding: 15px 0;
@@ -72,49 +62,55 @@
     border: 1px solid #ccc;
     outline: none;
     width: 250px;
-    transition: 0.3s;
   }
 
-  .search-box input:focus {
-    border-color: #ff6f91;
-    width: 300px;
-  }
-
-  /* Menu */
+  /* Navbar */
   .navbar {
     background: #ffb6c1;
     display: flex;
     justify-content: center;
     gap: 40px;
     padding: 10px 0;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   }
 
   .navbar a {
     text-decoration: none;
     color: #8b0000;
     font-weight: 600;
-    transition: 0.3s;
   }
 
   .navbar a:hover {
-    color: #fff;
+    color: white;
   }
 
-  /* Nội dung chính */
-  .main-content {
-    display: flex;
-    max-width: 1200px;
-    margin: 30px auto;
-    gap: 20px;
+  /* Nút mở danh mục (3 sọc ngang) */
+  .menu-toggle {
+    background: #ff8fa3;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 15px 25px;
   }
 
+  /* Sidebar */
   .sidebar {
-    width: 220px;
+    position: fixed;
+    left: -260px;
+    top: 0;
+    height: 100%;
+    width: 250px;
     background: #ffe6eb;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.active {
+    left: 0;
   }
 
   .sidebar h3 {
@@ -122,16 +118,12 @@
     color: #d6336c;
   }
 
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-
   .sidebar li {
-    padding: 8px 10px;
+    list-style: none;
+    padding: 10px;
     border-radius: 8px;
-    cursor: pointer;
     transition: 0.3s;
+    cursor: pointer;
   }
 
   .sidebar li:hover {
@@ -139,93 +131,163 @@
     color: white;
   }
 
-  .product-area {
-    flex: 1;
+  .close-sidebar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #d6336c;
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 999;
+  }
+
+  .overlay.active {
+    display: block;
+  }
+
+  /* Nội dung chính */
+  .section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .section h2 {
+    color: #d6336c;
+    text-align: center;
+    margin-bottom: 20px;
   }
 
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 20px;
   }
 
-  footer {
+  .product-item {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     text-align: center;
     padding: 15px;
-    color: #777;
-    font-size: 14px;
-    margin-top: 30px;
+    transition: 0.3s;
   }
 
-  /* Modal */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.4);
-    justify-content: center;
-    align-items: center;
+  .product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   }
 
-  .modal-content {
-    background: white;
-    padding: 30px 40px;
-    border-radius: 15px;
-    width: 400px;
-    text-align: left;
-    position: relative;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  .product-item img {
+    width: 100%;
+    border-radius: 10px;
   }
 
-  .modal-content h2 {
-    text-align: center;
-    margin-bottom: 20px;
+  .product-item h4 {
+    margin: 10px 0 5px;
+    color: #8b0000;
+  }
+
+  .price {
     color: #d6336c;
-  }
-
-  .modal-content input[type="text"],
-  .modal-content input[type="password"],
-  .modal-content input[type="email"] {
-    width: 100%;
-    padding: 8px 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    margin-top: 5px;
-    margin-bottom: 10px;
-  }
-
-  .modal-content .btn {
-    width: 100%;
-    background: #ff8fa3;
-    color: white;
-    padding: 10px;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
     font-weight: 600;
   }
 
-  .modal-content .btn:hover {
-    background: #ff6f91;
-  }
-
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 22px;
+  .add-cart {
+    background: #ff8fa3;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 20px;
     cursor: pointer;
+    margin-top: 8px;
   }
 
-  .modal-content label {
-    font-weight: 500;
+  .add-cart:hover {
+    background: #ff4d6d;
   }
 
-  .modal-content a {
-    text-decoration: none;
+  footer {
+    background: #ffccd5;
+    text-align: center;
+    padding: 15px;
+    color: #555;
+    margin-top: 50px;
+  }
+
+  /* Modal đăng nhập/đăng ký */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+
+  .modal-content {
+    position: relative;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 15px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .modal-content h3 {
     color: #d6336c;
+    margin-bottom: 15px;
+  }
+
+  .modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+  }
+
+  .modal-content button {
+    width: 100%;
+    background: #ff8fa3;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: background 0.3s;
+  }
+
+  .modal-content button:hover {
+    background: #ff4d6d;
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: #d6336c;
+    cursor: pointer;
   }
 </style>
 </head>
@@ -233,60 +295,79 @@
 
 <!-- Thanh trên cùng -->
 <div class="top-bar">
+  <button>class="menu-toggle" id="menuBtn">☰</button>
   <a id="loginLink">Đăng nhập</a> |
   <a id="registerLink">Đăng ký</a>
   <a href="giohang.html" class="cart-btn">🛒 Giỏ hàng</a>
 </div>
 
-<!-- Header chính -->
-<header class="main-header">
+<!-- Header -->
+<header>
   <img src="image/LOGO.jpg" class="logo" alt="Berry & Brew">
   <div class="search-box">
     <input type="text" placeholder="🔍 Tìm kiếm sản phẩm...">
   </div>
 </header>
 
-<!-- Menu -->
+<!-- Navbar -->
 <nav class="navbar">
-  <a href="Webbandoandouong.html">Trang Chủ</a>
-  <a href="gioithieu.html">Giới Thiệu</a>
-  <a href="sanpham.html">Sản Phẩm</a>
+  <a href="Webbandoandouong.html">Trang chủ</a>
+  <a href="gioithieu.html">Giới thiệu</a>
+  <a href="sanpham.html">Sản phẩm</a>
 </nav>
-<div class="main-content">
-  <aside class="sidebar">
-    <h3>📦 Danh mục sản phẩm</h3>
-    <ul>
-      <li>Tất cả</li>
-      <li>Snack</li>
-      <li>Bánh Mì</li>
-      <li>Bánh Tráng</li>
-      <li>Xúc Xích</li>
-      <li>Nước Ngọt</li>
-      <li>Nước Lọc</li>
-      <li>Cơm Cháy</li>
-    </ul>
-  </aside>
-  <section class="product-area">
-    <div class="product-grid">
-      <!-- Sản phẩm sẽ thêm ở đây -->
-    </div>
-  </section>
-</div>
 
-<footer>© 2025 Berry & Brew - All Rights Reserved</footer>
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+  <button class="close-sidebar" id="closeSidebar">✖</button>
+  <h3>📦 Danh mục sản phẩm</h3>
+  <ul>
+    <li>Tất cả</li>
+    <li>Snack</li>
+    <li>Bánh Mì</li>
+    <li>Đồ Sấy</li>
+    <li>Đồ Khô</li>
+    <li>Nước Ngọt</li>
+    <li>Nước Lọc</li>
+    <li>Hạt Dinh Dưỡng</li>
+    <li>Đồ Ăn Liền</li>
+    <li>Kẹo</li>
+  </ul>
+</aside>
+
+<div class="overlay" id="overlay"></div>
+
+<!-- SẢN PHẨM MỚI -->
+<section class="section">
+  <h2>🆕 Sản Phẩm Mới</h2>
+  <div class="product-grid">
+    <div class="product-item" data-name="Bánh dâu kem" data-price="35000" data-img="image/new1.jpg">
+      <img src="image/new1.jpg" alt="">
+      <h4>Bánh dâu kem</h4>
+      <p class="price">35.000đ</p>
+      <button class="add-cart">+ Thêm vào giỏ</button>
+    </div>
+    <div class="product-item" data-name="Trà đào cam sả" data-price="25000" data-img="image/new2.jpg">
+      <img src="image/new2.jpg" alt="">
+      <h4>Trà đào cam sả</h4>
+      <p class="price">25.000đ</p>
+      <button class="add-cart">+ Thêm vào giỏ</button>
+    </div>
+  </div>
+</section>
+
 <!-- Modal Đăng nhập -->
 <div id="loginModal" class="modal">
   <div class="modal-content">
-    <span class="close-btn" onclick="closeModal('loginModal')">&times;</span>
-    <h2>Đăng nhập</h2>
+    <button class="close-modal" onclick="closeModal('loginModal')">&times;</button>
+    <h3>Đăng nhập</h3>
     <form onsubmit="login(event)">
-      <label>Tên tài khoản hoặc email *</label>
-      <input type="text" id="username" placeholder="Nhập tài khoản hoặc email" required>
-      <label>Mật khẩu *</label>
-      <input type="password" id="password" placeholder="Nhập mật khẩu" required>
-      <label><input type="checkbox"> Ghi nhớ mật khẩu</label>
-      <button type="submit" class="btn">Đăng nhập</button>
-      <p style="text-align:center;"><a href="#">Quên mật khẩu?</a></p>
+      <input type="text" id="username" placeholder="Tên tài khoản hoặc email *" required>
+      <input type="password" id="password" placeholder="Mật khẩu *" required>
+      <label style="display:block; text-align:left; font-size:13px; margin:5px 0;">
+        <input type="checkbox"> Ghi nhớ mật khẩu
+      </label>
+      <button type="submit">Đăng nhập</button>
+      <p style="margin-top:10px;"><a href="#" style="color:#d6336c;">Quên mật khẩu?</a></p>
     </form>
   </div>
 </div>
@@ -294,54 +375,89 @@
 <!-- Modal Đăng ký -->
 <div id="registerModal" class="modal">
   <div class="modal-content">
-    <span class="close-btn" onclick="closeModal('registerModal')">&times;</span>
-    <h2>Đăng ký</h2>
+    <button class="close-modal" onclick="closeModal('registerModal')">&times;</button>
+    <h3>Đăng ký</h3>
     <form onsubmit="register(event)">
-      <label>Tên tài khoản *</label>
-      <input type="text" id="regUsername" placeholder="Nhập tên tài khoản" required>
-      <label>Email *</label>
-      <input type="email" id="regEmail" placeholder="Nhập email" required>
-      <label>Mật khẩu *</label>
-      <input type="password" id="regPassword" placeholder="Nhập mật khẩu" required>
-      <button type="submit" class="btn">Đăng ký</button>
+      <input type="text" id="regUsername" placeholder="Tên tài khoản *" required>
+      <input type="email" id="regEmail" placeholder="Email *" required>
+      <input type="password" id="regPassword" placeholder="Mật khẩu *" required>
+      <button type="submit">Đăng ký</button>
     </form>
   </div>
 </div>
+
+<footer>© 2025 Berry & Brew - All Rights Reserved</footer>
+
 <script>
-const loginLink = document.getElementById('loginLink');
-const registerLink = document.getElementById('registerLink');
+  // Sidebar
+  const menuBtn = document.getElementById('menuBtn');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+  const closeSidebar = document.getElementById('closeSidebar');
 
-loginLink.onclick = e => {
-  e.preventDefault();
-  document.getElementById('loginModal').style.display = 'flex';
-}
-
-registerLink.onclick = e => {
-  e.preventDefault();
-  document.getElementById('registerModal').style.display = 'flex';
-}
-
-function closeModal(id){
-  document.getElementById(id).style.display = 'none';
-}
-
-window.onclick = function(event){
-  if(event.target.classList.contains('modal')){
-    event.target.style.display = 'none';
+  menuBtn.onclick = () => {
+    sidebar.classList.add('active');
+    overlay.classList.add('active');
   }
-}
+  closeSidebar.onclick = closeMenu = () => {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+  }
+  overlay.onclick = closeMenu;
 
-function login(event){
-  event.preventDefault();
-  alert("Đăng nhập thành công (demo)");
-  closeModal('loginModal');
-}
+  // Đăng nhập / đăng ký modal
+  const loginLink = document.getElementById('loginLink');
+  const registerLink = document.getElementById('registerLink');
 
-function register(event){
-  event.preventDefault();
-  alert("Đăng ký thành công (demo)");
-  closeModal('registerModal');
-}
+  loginLink.onclick = e => {
+    e.preventDefault();
+    document.getElementById('loginModal').style.display = 'flex';
+  }
+
+  registerLink.onclick = e => {
+    e.preventDefault();
+    document.getElementById('registerModal').style.display = 'flex';
+  }
+
+  function closeModal(id){
+    document.getElementById(id).style.display = 'none';
+  }
+
+  window.onclick = function(event){
+    if(event.target.classList.contains('modal')){
+      event.target.style.display = 'none';
+    }
+  }
+
+  function login(event){
+    event.preventDefault();
+    alert("Đăng nhập thành công (demo)");
+    closeModal('loginModal');
+  }
+
+  function register(event){
+    event.preventDefault();
+    alert("Đăng ký thành công (demo)");
+    closeModal('registerModal');
+  }
+
+  // Thêm sản phẩm vào giỏ hàng (lưu vào localStorage)
+  const addCartBtns = document.querySelectorAll('.add-cart');
+  addCartBtns.forEach(btn => {
+    btn.addEventListener('click', e => {
+      const item = e.target.closest('.product-item');
+      const product = {
+        name: item.dataset.name,
+        price: item.dataset.price,
+        img: item.dataset.img
+      };
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(product);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`Đã thêm "${product.name}" vào giỏ hàng!`);
+      window.location.href = "giohang.html";
+    });
+  });
 </script>
 </body>
 </html>
