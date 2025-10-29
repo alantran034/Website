@@ -16,17 +16,17 @@
   .top-bar {
     background: #ffe6eb;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    gap: 15px;
     padding: 6px 30px;
     font-size: 14px;
   }
 
-  .top-bar a {
+  .top-bar .user-links a {
     text-decoration: none;
     color: #d6336c;
     font-weight: 500;
+    margin-left: 15px;
     transition: 0.3s;
     cursor: pointer;
   }
@@ -92,7 +92,6 @@
     font-size: 22px;
     cursor: pointer;
     border-radius: 8px;
-    margin: 15px 25px;
   }
 
   /* Sidebar */
@@ -116,6 +115,11 @@
   .sidebar h3 {
     text-align: center;
     color: #d6336c;
+  }
+
+  .sidebar ul {
+    padding: 0;
+    margin-top: 20px;
   }
 
   .sidebar li {
@@ -289,16 +293,54 @@
     color: #d6336c;
     cursor: pointer;
   }
+  .sider {
+    width: 100%;
+    height: 510px;
+    position: relative;
+  
+  }
+  .sider img {
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .sider img:first-child {
+    z-index: 1;
+  }
+  .sider img:nth-child(2) {
+    z-index: 0;
+  }
+  .navigation-button {
+    text-align: center;
+    position: relative;
+  }
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .active, 
+  .dot:hover {
+    background-color: #717171;
+  }
 </style>
 </head>
 <body>
 
 <!-- Thanh trên cùng -->
 <div class="top-bar">
-  <button>class="menu-toggle" id="menuBtn">☰</button>
-  <a id="loginLink">Đăng nhập</a> |
-  <a id="registerLink">Đăng ký</a>
-  <a href="giohang.html" class="cart-btn">🛒 Giỏ hàng</a>
+  <button class="menu-toggle" id="menuBtn">☰</button>
+  <div class="user-links">
+    <a id="loginLink">Đăng nhập</a> |
+    <a id="registerLink">Đăng ký</a>
+    <a href="giohang.html" class="cart-btn">🛒 Giỏ hàng</a>
+  </div>
 </div>
 
 <!-- Header -->
@@ -315,42 +357,135 @@
   <a href="gioithieu.html">Giới thiệu</a>
   <a href="sanpham.html">Sản phẩm</a>
 </nav>
+<!-- Slider hình ảnh -->
+<div class="sider">
+  <img src="image/slide1.jpg" alt="Slide 1">
+  <img src="image/slide2.jpg" alt="Slide 2">
+  <img src="image/slide2.jpg" alt="Slide 3">
+</div>
+<div class="navigation-button">
+  <span class="dot active" onclick="changeSlide(0)"></span>
+  <span class="dot" onclick="changeSlide(1)"></span>
+  <span class="dot" onclick="changeSlide(2)"></span>
+</div>
+
 
 <!-- Sidebar -->
 <aside class="sidebar" id="sidebar">
   <button class="close-sidebar" id="closeSidebar">✖</button>
   <h3>📦 Danh mục sản phẩm</h3>
   <ul>
-    <li>Tất cả</li>
-    <li>Snack</li>
-    <li>Bánh Mì</li>
-    <li>Đồ Sấy</li>
-    <li>Đồ Khô</li>
-    <li>Nước Ngọt</li>
-    <li>Nước Lọc</li>
-    <li>Hạt Dinh Dưỡng</li>
-    <li>Đồ Ăn Liền</li>
-    <li>Kẹo</li>
+    <li onclick="showCategory('sanphammoi')">Sản phẩm mới</li>
+    <li onclick="showCategory('sanphamnoibat')">Sản phẩm nổi bật</li>
+    <li onclick="showCategory('sanphambanchay')">Sản phẩm bán chạy</li>
+    <li onclick="showCategory('feedback')">Feedback của khách hàng</li>
   </ul>
 </aside>
 
 <div class="overlay" id="overlay"></div>
 
-<!-- SẢN PHẨM MỚI -->
-<section class="section">
+<!-- Sản phẩm mới -->
+<section id="sanphammoi" class="section">
   <h2>🆕 Sản Phẩm Mới</h2>
   <div class="product-grid">
     <div class="product-item" data-name="Bánh dâu kem" data-price="35000" data-img="image/new1.jpg">
-      <img src="image/new1.jpg" alt="">
+      <img src="image/new1.jpg" alt="Bánh dâu kem">
       <h4>Bánh dâu kem</h4>
       <p class="price">35.000đ</p>
       <button class="add-cart">+ Thêm vào giỏ</button>
     </div>
     <div class="product-item" data-name="Trà đào cam sả" data-price="25000" data-img="image/new2.jpg">
-      <img src="image/new2.jpg" alt="">
+      <img src="image/new2.jpg" alt="Trà đào cam sả">
       <h4>Trà đào cam sả</h4>
       <p class="price">25.000đ</p>
       <button class="add-cart">+ Thêm vào giỏ</button>
+    </div>
+  </div>
+</section>
+
+<!-- Sản phẩm nổi bật -->
+<section id="sanphamnoibat" class="section">
+  <h2>Sản Phẩm Nổi Bật</h2>
+  <div class="product-grid">
+    <div class="product-item" data-name="Bánh mì Kinh Đô" data-price="15000" data-img="image/sanpham1.jpg">
+      <img src="image/sanpham1.jpg" alt="Bánh mì Kinh Đô">
+      <h4>Bánh mì Kinh Đô</h4>
+      <p class="price">15.000đ</p>
+      <button class="add-cart">+ Thêm vào giỏ</button>
+    </div>
+    <div class="product-item" data-name="Snack phô mai" data-price="20000" data-img="image/sanpham2.jpg">
+      <img src="image/sanpham2.jpg" alt="Snack phô mai">
+      <h4>Snack phô mai</h4>
+      <p class="price">20.000đ</p>
+      <button class="add-cart">+ Thêm vào giỏ</button>
+    </div>
+    <div class="product-item" data-name="Coca Cola" data-price="12000" data-img="image/sanpham3.jpg">
+      <img src="image/sanpham3.jpg" alt="Coca Cola">
+      <h4>Coca Cola</h4>
+      <p class="price">12.000đ</p>
+      <button class="add-cart">+ Thêm vào giỏ</button>
+    </div>
+    <div class="product-item" data-name="Nước lọc Aquafina" data-price="8000" data-img="image/sanpham4.jpg">
+      <img src="image/sanpham4.jpg" alt="Nước lọc Aquafina">
+      <h4>Nước lọc Aquafina</h4>
+      <p class="price">8.000đ</p>
+      <button class="add-cart">+ Thêm vào giỏ</button>
+    </div>
+  </div>
+</section>
+
+<!-- Sản phẩm bán chạy -->
+<section id="sanphambanchay" class="section">
+  <h2>Sản Phẩm Bán Chạy</h2>
+  <div class="product-grid">
+    <div class="product-item" data-name="Bánh mì Olive" data-price="18000" data-img="image/bestsell1.jpg">
+      <img src="image/bestsell1.jpg" alt="Bánh mì Olive">
+      <h4>Bánh mì Olive</h4>
+      <p class="price">18.000đ</p>
+      <button class="add-cart">+ Thêm vào giỏ</button>
+    </div>
+    <div class="product-item" data-name="Snack tôm cay" data-price="22000" data-img="image/bestsell2.jpg">
+      <img src="image/bestsell2.jpg" alt="Snack tôm cay">
+      <h4>Snack tôm cay</h4>
+      <p class="price">22.000đ</p>
+      <button class="add-cart">+ Thêm vào giỏ</button>
+    </div>
+    <div class="product-item" data-name="Pepsi" data-price="12000" data-img="image/bestsell3.jpg">
+      <img src="image/bestsell3.jpg" alt="Pepsi">
+      <h4>Pepsi</h4>
+      <p class="price">12.000đ</p>
+      <button class="add-cart">+ Thêm vào giỏ</button>
+    </div>
+    <div class="product-item" data-name="Nước lọc Lavie" data-price="8000" data-img="image/bestsell4.jpg">
+      <img src="image/bestsell4.jpg" alt="Nước lọc Lavie">
+      <h4>Nước lọc Lavie</h4>
+      <p class="price">8.000đ</p>
+      <button class="add-cart">+ Thêm vào giỏ</button>
+    </div>
+  </div>
+</section>
+
+<!-- Feedback -->
+<section id="feedback" class="section">
+  <h2>Feedback của Khách Hàng</h2>
+  <div class="product-grid">
+    <div class="product-item">
+      <img src="image/feedback1.jpg" alt="Nguyễn Thị Hoài Thương">
+      <h4>Nguyễn Thị Hoài Thương</h4>
+      <p class="price">⭐⭐⭐⭐⭐</p>
+      <p>"Bánh và đồ uống ở đây thật tuyệt vời! Mình rất thích trà dâu kem."</p>
+    </div>
+    <div class="product-item">
+      <img src="image/feedback2.jpg" alt="Trần Thanh">
+      <h4>Trần Thanh</h4>
+      <p class="price">⭐⭐⭐⭐⭐</p>
+      <p>"Dịch vụ nhanh chóng và sản phẩm chất lượng. Sẽ ủng hộ tiếp!"</p>
+    </div>
+    <div class="product-item">
+      <img src="image/feedback3.jpg" alt="Lê Minh Tuấn">
+      <h4>Lê Minh Tuấn</h4>
+      <p class="price">⭐⭐⭐⭐⭐</p>
+      <p>"Giá cả hợp lý, đồ ăn ngon. Rất hài lòng với trải nghiệm mua sắm tại Berry & Brew."</p>
     </div>
   </div>
 </section>
@@ -405,6 +540,15 @@
   }
   overlay.onclick = closeMenu;
 
+  // Scroll tới section
+  function showCategory(id){
+    const section = document.getElementById(id);
+    if(section){
+      section.scrollIntoView({behavior: 'smooth'});
+    }
+    closeMenu();
+  }
+
   // Đăng nhập / đăng ký modal
   const loginLink = document.getElementById('loginLink');
   const registerLink = document.getElementById('registerLink');
@@ -413,7 +557,7 @@
     e.preventDefault();
     document.getElementById('loginModal').style.display = 'flex';
   }
-
+  
   registerLink.onclick = e => {
     e.preventDefault();
     document.getElementById('registerModal').style.display = 'flex';
@@ -455,9 +599,27 @@
       cart.push(product);
       localStorage.setItem('cart', JSON.stringify(cart));
       alert(`Đã thêm "${product.name}" vào giỏ hàng!`);
-      window.location.href = "giohang.html";
     });
   });
+  var timer = setInterval(changeSlide, interval);
+  var imgs = document.querySelectorAll('.sider img');
+  var dots = document.querySelectorAll('.dot');
+  var currentIndex = 0;
+  const interval = 3000;
+  function changeSlide(n) {
+    for (var i = 0; i < imgs.length; i++) {
+      imgs[i].style.opacity = 0;
+      dots[i].className = dots[i].className.replace('active','');
+    }
+    currentImg = (currentImg + 1) % imgs.length; // update the index number
+
+if (n != undefined) {
+    clearInterval(timer);
+    timer = setInterval(changeSlide, interval);
+    currentImg = n;
+}
+
+}
 </script>
 </body>
 </html>
