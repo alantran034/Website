@@ -9,7 +9,7 @@
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #fff8f6;
-    color: #333;
+    color: #333; /* chữ */
   }
 
   /* Thanh trên cùng */
@@ -321,42 +321,190 @@
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: #bbb;
+    background-color: #e5c7c7;
     border-radius: 50%;
     display: inline-block;
   }
+  /* màu nền tab ẩn */
   .active, 
   .dot:hover {
-    background-color: #717171;
+    background-color: #ebb1bb ;
+
   }
+  .sider img {
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+.sider img.active {
+  opacity: 1;
+  z-index: 1;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.top-bar {
+  background-color: #fff;
+  text-align: right;
+  padding: 10px 50px;
+  font-size: 14px;
+  color: #555;
+}
+
+.logo {
+  text-align: center;
+  padding: 25px 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: #b76b09;
+}
+
+/* --- Thanh tab chính --- */
+.navbar {
+  background-color: #f49aa9;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 12px 0;
+  position: relative;
+  transition: all 0.4s ease;
+  z-index: 999;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: white;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* --- Khi navbar “dính” lên đầu --- */
+.navbar.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.4s ease forwards;
+}
+
+/* --- Hiệu ứng trượt lên khi dính --- */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* --- Nội dung dài để test --- */
+.content {
+  height: 2500px;
+  background: #faf3e0;
+  padding: 30px;
+  line-height: 1.6;
+}
+/* Căn chỉnh thanh trên cùng */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 80px;
+}
+
+.header-left {
+  flex: 1;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Giỏ hàng, đăng nhập, đăng ký bên phải */
+.header-right {
+  margin-left: auto;
+}
+
+/* Thanh điều hướng giữa */
+.navbar {
+  background-color: #ff99aa; /* màu của bạn */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.navbar ul li {
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.navbar ul li:hover {
+  text-decoration: underline;
+}
 </style>
 </head>
 <body>
 
 <!-- Thanh trên cùng -->
-<div class="top-bar">
+ <header>
+  <img src="image/LOGO.jpg" class="logo" alt="Berry & Brew">
+  <div class="search-box">
+    <input type="text" placeholder="🔍 Tìm kiếm sản phẩm...">
+  </div>
+  <div class="top-bar">
   <button class="menu-toggle" id="menuBtn">☰</button>
   <div class="user-links">
     <a id="loginLink">Đăng nhập</a> |
     <a id="registerLink">Đăng ký</a>
     <a href="giohang.html" class="cart-btn">🛒 Giỏ hàng</a>
   </div>
-</div>
 
-<!-- Header -->
-<header>
-  <img src="image/LOGO.jpg" class="logo" alt="Berry & Brew">
-  <div class="search-box">
-    <input type="text" placeholder="🔍 Tìm kiếm sản phẩm...">
-  </div>
+  <nav class="navbar">
+    <a href="Webbandoandouong.html">Trang chủ</a>
+    <a href="gioithieu.html">Giới thiệu</a>
+    <a href="sanpham.html">Sản phẩm</a>
+    <a href="gioithieu.html">Tin tức</a>
+    <a href="gioithieu.html">Liên hệ</a>
+    <a href="gioithieu.html">Chính sách</a>
+  </nav>
 </header>
 
-<!-- Navbar -->
-<nav class="navbar">
-  <a href="Webbandoandouong.html">Trang chủ</a>
-  <a href="gioithieu.html">Giới thiệu</a>
-  <a href="sanpham.html">Sản phẩm</a>
-</nav>
+
 <!-- Slider hình ảnh -->
 <div class="sider">
   <img src="image/slide1.jpg" alt="Slide 1">
@@ -601,25 +749,43 @@
       alert(`Đã thêm "${product.name}" vào giỏ hàng!`);
     });
   });
-  var timer = setInterval(changeSlide, interval);
-  var imgs = document.querySelectorAll('.sider img');
-  var dots = document.querySelectorAll('.dot');
-  var currentIndex = 0;
-  const interval = 3000;
-  function changeSlide(n) {
-    for (var i = 0; i < imgs.length; i++) {
-      imgs[i].style.opacity = 0;
-      dots[i].className = dots[i].className.replace('active','');
-    }
-    currentImg = (currentImg + 1) % imgs.length; // update the index number
 
-if (n != undefined) {
+  // 🎞️ Slider ảnh có hiệu ứng chuyển mượt
+  const imgs = document.querySelectorAll('.sider img');
+  const dots = document.querySelectorAll('.dot');
+  let currentIndex = 0;
+  const interval = 4000;
+
+  function showSlide(index) {
+    imgs.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+      dots[i].classList.toggle('active', i === index);
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % imgs.length;
+    showSlide(currentIndex);
+  }
+
+  function changeSlide(index) {
+    currentIndex = index;
+    showSlide(currentIndex);
     clearInterval(timer);
-    timer = setInterval(changeSlide, interval);
-    currentImg = n;
-}
+    timer = setInterval(nextSlide, interval);
+  }
 
-}
+  showSlide(currentIndex);
+  let timer = setInterval(nextSlide, interval);
+  window.addEventListener("scroll", function() {
+  const navbar = document.querySelector(".navbar");
+  const logoHeight = document.querySelector(".logo").offsetHeight;
+  if (window.scrollY > logoHeight) {
+    navbar.classList.add("sticky");
+  } else {
+    navbar.classList.remove("sticky");
+  }
+});
 </script>
 </body>
 </html>
