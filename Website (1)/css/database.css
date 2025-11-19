@@ -1,0 +1,355 @@
+/* Toàn trang */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff8f6;
+  color: #333;
+}
+
+/* Thanh chào */
+.header-top-banner {
+  background-image: linear-gradient(to right, #f4a9b8, #ffccd5);
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-top-banner .save-box {
+  background-color: white;
+  color: #e2001a;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.header-top-banner button {
+  background-color: #e26a8a;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.header-top-banner button:hover {
+  background-color: #c94b6b;
+}
+
+/* ===== HEADER ===== */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffccd5;
+  padding: 10px 40px;
+}
+
+.logo {
+  width: 120px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
+}
+
+/* Thanh menu */
+.navbar {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 17px;
+  padding: 12px 25px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  /* Gộp từ .navbar a thứ 2 */
+  color: #8b0000;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  background-color: #e26a8a;
+  /* Gộp từ .navbar a:hover thứ 2 */
+  color: #fff;
+}
+
+/* Hiệu ứng mượt mà */
+* {
+  transition: all 0.3s ease;
+}
+
+/* --- Giỏ hàng --- */
+.cart-container {
+  width: 80%;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.cart-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #d66c6c;
+}
+
+/* --- Bảng sản phẩm --- */
+#cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#cart-table th,
+#cart-table td {
+  border-bottom: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#cart-table th {
+  background-color: #ffe4e4;
+  color: #444;
+}
+
+#cart-table tr:hover {
+  background-color: #fff7f7;
+}
+
+#cart-table img {
+  border-radius: 6px;
+}
+
+/* --- Nút xóa --- */
+#cart-table button {
+  background-color: #ff7b7b;
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#cart-table button:hover {
+  background-color: #e25858;
+}
+
+/* --- Tổng kết giỏ hàng --- */
+.cart-summary {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.cart-summary h3 {
+  font-size: 20px;
+  color: #222;
+}
+
+.checkout-btn {
+  background-color: #d66c6c;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.checkout-btn:hover {
+  background-color: #b55555;
+}
+
+/* --- Trang thanh toán --- */
+.checkout-container {
+  width: 60%;
+  margin: 80px auto;
+  text-align: center;
+  background: #fff5f5;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.checkout-container h2 {
+  color: #c15555;
+}
+.checkout-container p {
+  font-size: 17px;
+  margin: 15px 0 25px;
+  color: #444;
+}
+
+/* --- Bộ lọc giá --- */
+.filter-container {
+  text-align: center;
+  margin: 20px 0;
+  font-weight: bold;
+  color: #d6336c;
+}
+
+#price-filter {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 2px solid #ff8fa3;
+  background-color: #fff0f5;
+  color: #8b0000;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+#price-filter:hover {
+  background-color: #ffe6eb;
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #f4a8a8;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  margin-top: 40px;
+  /* Gộp từ footer thứ 2 */
+  padding: 15px;
+  color: #777;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+/* ===== HEADER RIGHT ===== */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-box input {
+  padding: 6px 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: 150px;
+  transition: 0.3s;
+}
+
+.search-box input:focus {
+  width: 200px;
+  border-color: #ff6f91;
+}
+
+.cart-btn {
+  background-color: #ff8fa3;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.cart-btn:hover {
+  background-color: #ff6f91;
+}
+
+/* ===== NỘI DUNG CHÍNH ===== */
+.main-content {
+  display: flex;
+  max-width: 1200px;
+  margin: 30px auto;
+  gap: 20px;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #ffe6eb;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.sidebar h3 {
+  text-align: center;
+  color: #d6336c;
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+}
+
+.category-list li {
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.category-list li:hover {
+  background-color: #ffb6c1;
+  color: white;
+}
+
+.product-area {
+  flex: 1;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.product-item {
+  background-color: #ffe6eb;
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+}
+
+.product-item img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.price {
+  color: #d6336c;
+  font-weight: bold;
+}
+
+.product-item button {
+  background-color: #ff8fa3;
+  border: none;
+  color: white;
+  border-radius: 20px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.product-item button:hover {
+  background-color: #ff6f91;
+}
