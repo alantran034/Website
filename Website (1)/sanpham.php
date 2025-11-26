@@ -271,7 +271,7 @@
   <header class="main-header">
     <img src="image/LOGO.jpg" class="logo" alt="Berry & Brew">
     <nav class="navbar">
-      <a href="Webbandoandouong.html">Trang Chủ</a>
+      <a href="Trangchu.html">Trang Chủ</a>
       <a href="gioithieu.html">Giới Thiệu</a>
       <a href="sanpham.php">Sản Phẩm</a>
       <a href="giohang.html">Giỏ Hàng</a>

@@ -201,7 +201,7 @@ if (isset($_POST['submit'])) {
 
 <!-- Menu -->
 <nav class="navbar">
-  <a href="../Webbandoandouong.html">Trang Chủ</a>
+  <a href="../Trangchu.html">Trang Chủ</a>
   <a href="../gioithieu.html">Giới Thiệu</a>
   <a href="../sanpham.php">Sản Phẩm</a>
 </nav>
