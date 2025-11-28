@@ -9,7 +9,7 @@
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #fff8f6;
-    color: #333; /* chữ */
+    color: #333;
   }
 
   /* Thanh trên cùng */
@@ -75,7 +75,7 @@
 
   .navbar a {
     text-decoration: none;
-    color: #8b0000;
+    color: #cfbebe;
     font-weight: 600;
   }
 
@@ -93,17 +93,18 @@
     cursor: pointer;
     border-radius: 8px;
   }
+  
 
   /* Sidebar */
   .sidebar {
     position: fixed;
-    left: -260px;
+    left: -300px;
     top: 0;
     height: 100%;
     width: 250px;
-    background: #ffe6eb;
+    background: #fafafa;
     padding: 20px;
-    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+    box-shadow: none;
     transition: left 0.3s ease;
     z-index: 1000;
   }
@@ -137,7 +138,7 @@
 
   .close-sidebar {
     position: absolute;
-    top: 10px;
+    top: 5px;
     right: 15px;
     background: none;
     border: none;
@@ -146,18 +147,6 @@
     color: #d6336c;
   }
 
-  .overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.4);
-    z-index: 999;
-  }
-
-  .overlay.active {
-    display: block;
-  }
 
   /* Nội dung chính */
   .section {
@@ -240,6 +229,11 @@
     align-items: center;
     z-index: 2000;
   }
+  
+
+.modal.active { 
+    display: flex;
+}
 
   .modal-content {
     position: relative;
@@ -285,14 +279,24 @@
 
   .close-modal {
     position: absolute;
-    top: 12px;
-    right: 15px;
-    background: none;
+    left: 50%; 
+    transform: translateX(-50%); 
+    top: -10px;    
+
+    width: 30px;
+    height: 42px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; 
+    
+    background: #ff8fa3;
+    color: #fff;
+    font-size: 20px;
     border: none;
-    font-size: 22px;
-    color: #d6336c;
     cursor: pointer;
-  }
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
   .sider {
     width: 100%;
     height: 510px;
@@ -321,200 +325,323 @@
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: #e5c7c7;
+    background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
   }
-  /* màu nền tab ẩn */
-  .active, 
   .dot:hover {
-    background-color: #ebb1bb ;
-
+    background-color: #717171;
   }
-  .sider img {
-  width: 100%;
-  height: 500px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 1.5s ease-in-out;
-}
-.sider img.active {
-  opacity: 1;
-  z-index: 1;
-}
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-.top-bar {
-  background-color: #fff;
-  text-align: right;
-  padding: 10px 50px;
-  font-size: 14px;
-  color: #555;
-}
-
-.logo {
-  text-align: center;
-  padding: 25px 0;
-  font-size: 28px;
-  font-weight: bold;
-  color: #b76b09;
-}
-
-/* --- Thanh tab chính --- */
-.navbar {
-  background-color: #f49aa9;
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  padding: 12px 0;
-  position: relative;
-  transition: all 0.4s ease;
-  z-index: 999;
-}
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  position: relative;
-}
-
-.navbar a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  background: white;
-  left: 0;
-  bottom: -5px;
-  transition: 0.3s;
-}
-
-.navbar a:hover::after {
-  width: 100%;
-}
-
-/* --- Khi navbar “dính” lên đầu --- */
-.navbar.sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  animation: slideDown 0.4s ease forwards;
-}
-
-/* --- Hiệu ứng trượt lên khi dính --- */
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
+</style>
+</head>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Giới thiệu - Berry & Brew</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff8f6;
+    color: #333;
   }
-  to {
-    transform: translateY(0);
+
+  /* ===== THANH TRÊN CÙNG ===== */
+  .top-bar {
+    background: #ffe6eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 6px 20px;
+    font-size: 14px;
   }
-}
 
-/* --- Nội dung dài để test --- */
-.content {
-  height: 2500px;
-  background: #faf3e0;
-  padding: 30px;
-  line-height: 1.6;
-}
-/* Căn chỉnh thanh trên cùng */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 80px;
-}
+  .top-bar a {
+    text-decoration: none;
+    color: #d6336c;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+  }
 
-.header-left {
-  flex: 1;
-}
+  .top-bar a:hover {
+    color: #ff6f91;
+  }
 
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
+  .cart-btn {
+    background: #ff8fa3;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+  }
 
-/* Giỏ hàng, đăng nhập, đăng ký bên phải */
-.header-right {
-  margin-left: auto;
-}
+  .cart-btn:hover {
+    background: #ff6f91;
+  }
 
-/* Thanh điều hướng giữa */
-.navbar {
-  background-color: #ff99aa; /* màu của bạn */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  /* ===== HEADER ===== */
+  .main-header {
+    background: #ffccd5;
+    text-align: center;
+    padding: 15px 0;
+  }
 
-.navbar ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  padding: 10px 0;
-  margin: 0;
-}
+  .logo {
+    width: 120px;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255,182,193,0.6);
+  }
 
-.navbar ul li {
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
-}
+  .search-box {
+    margin-top: 10px;
+    position: relative;
+  }
 
-.navbar ul li:hover {
-  text-decoration: underline;
-}
+  .search-box input {
+    padding: 8px 15px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 250px;
+    transition: 0.3s;
+  }
+
+  .search-box input:focus {
+    border-color: #ff6f91;
+    width: 300px;
+  }
+
+  /* ===== MENU ===== */
+  .navbar {
+    background: #ffb6c1;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 10px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .navbar a {
+    text-decoration: none;
+    color: #8b0000;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+
+  .navbar a:hover {
+    color: #fff;
+  }
+
+  /* ===== NỘI DUNG GIỚI THIỆU ===== */
+  .about-section {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #ffe6eb;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  .about-section h2 {
+    color: #d6336c;
+    margin-bottom: 20px;
+    font-size: 26px;
+  }
+
+  .about-section p {
+    font-size: 16px;
+    color: #555;
+  }
+
+  .about-section img {
+    width: 80%;
+    max-width: 400px;
+    border-radius: 15px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 15px;
+    color: #777;
+    font-size: 14px;
+    margin-top: 30px;
+  }
+
+  /* ========== MODAL (Sửa) ========== */
+  .modal {
+    display: none;                 /* bật bằng JS: display:flex */
+    position: fixed;
+    z-index: 1400;
+    inset: 0;                      /* left:0; top:0; right:0; bottom:0; */
+    background-color: rgba(0,0,0,0.45);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;                 /* để modal-content có khoảng cách khi màn hình nhỏ */
+  }
+
+  /* Khi modal mở, thêm class lên body để khóa scroll */
+  body.modal-open {
+    overflow: hidden;
+  }
+
+  .modal-content {
+    position: relative;
+    background: white;
+    padding: 28px 26px;
+    border-radius: 14px;
+    width: 400px;
+    max-width: 100%;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    animation: fadeInUp 0.28s ease both;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .modal-content h2 {
+    text-align: center;
+    margin-bottom: 18px;
+    color: #d6336c;
+  }
+
+  .modal-content form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-content label {
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .modal-content input[type="text"],
+  .modal-content input[type="password"],
+  .modal-content input[type="email"]{
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+
+  .modal-content input:focus {
+    border-color: #ff8fa3;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,143,163,0.08);
+  }
+
+  .modal-content .btn {
+    width: 100%;
+    background: #ff8fa3;
+    color: white;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 8px;
+    transition: background 0.2s;
+  }
+
+  .modal-content .btn:hover {
+    background: #ff6f91;
+  }
+
+  /* Nút đóng: tròn, màu hồng nhỏ, nằm góc trên phải */
+  .close-btn {
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ff8fa3;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  }
+
+  .modal-content p {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .modal-content a {
+    text-decoration: none;
+    color: #d6336c;
+  }
+
+  .modal-content a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsive nhỏ */
+  @media (max-width: 480px) {
+    .modal-content { padding: 18px; width: 100%; border-radius: 12px; }
+    .close-btn { top: -14px; right: -14px; width: 36px; height: 36px; font-size: 18px; }
+  }
+  .dot.active, /* CHỈ ÁP DỤNG CHO CHẤM TRÒN CÓ CLASS ACTIVE */
+ .dot:hover {
+  background-color: #717171;
+ }
 </style>
 </head>
 <body>
 
 <!-- Thanh trên cùng -->
- <header>
-  <img src="image/LOGO.jpg" class="logo" alt="Berry & Brew">
-  <div class="search-box">
-    <input type="text" placeholder="🔍 Tìm kiếm sản phẩm...">
-  </div>
-  <div class="top-bar">
+<div class="top-bar">
   <button class="menu-toggle" id="menuBtn">☰</button>
   <div class="user-links">
     <a id="loginLink">Đăng nhập</a> |
     <a id="registerLink">Đăng ký</a>
     <a href="giohang.html" class="cart-btn">🛒 Giỏ hàng</a>
   </div>
+</div>
 
-  <nav class="navbar">
-    <a href="Webbandoandouong.html">Trang chủ</a>
-    <a href="gioithieu.html">Giới thiệu</a>
-    <a href="sanpham.html">Sản phẩm</a>
-    <a href="gioithieu.html">Tin tức</a>
-    <a href="gioithieu.html">Liên hệ</a>
-    <a href="gioithieu.html">Chính sách</a>
-  </nav>
+<!-- Header -->
+<header>
+  <img src="image/LOGO.jpg" class="logo" alt="Berry & Brew">
+  <div class="search-box">
+  </div>
 </header>
 
-
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="Webbandoandouong.html">Trang chủ</a>
+  <a href="gioithieu.html">Giới thiệu</a>
+  <a href="sanpham.php">Sản phẩm</a>
+</nav>
 <!-- Slider hình ảnh -->
 <div class="sider">
   <img src="image/slide1.jpg" alt="Slide 1">
-  <img src="image/slide2.jpg" alt="Slide 2">
-  <img src="image/slide2.jpg" alt="Slide 3">
+  
 </div>
 <div class="navigation-button">
   <span class="dot active" onclick="changeSlide(0)"></span>
-  <span class="dot" onclick="changeSlide(1)"></span>
-  <span class="dot" onclick="changeSlide(2)"></span>
 </div>
 
 
@@ -523,89 +650,69 @@ body {
   <button class="close-sidebar" id="closeSidebar">✖</button>
   <h3>📦 Danh mục sản phẩm</h3>
   <ul>
-    <li onclick="showCategory('sanphammoi')">Sản phẩm mới</li>
     <li onclick="showCategory('sanphamnoibat')">Sản phẩm nổi bật</li>
     <li onclick="showCategory('sanphambanchay')">Sản phẩm bán chạy</li>
     <li onclick="showCategory('feedback')">Feedback của khách hàng</li>
   </ul>
 </aside>
 
-<div class="overlay" id="overlay"></div>
 
-<!-- Sản phẩm mới -->
-<section id="sanphammoi" class="section">
-  <h2>🆕 Sản Phẩm Mới</h2>
-  <div class="product-grid">
-    <div class="product-item" data-name="Bánh dâu kem" data-price="35000" data-img="image/new1.jpg">
-      <img src="image/new1.jpg" alt="Bánh dâu kem">
-      <h4>Bánh dâu kem</h4>
-      <p class="price">35.000đ</p>
-      <button class="add-cart">+ Thêm vào giỏ</button>
-    </div>
-    <div class="product-item" data-name="Trà đào cam sả" data-price="25000" data-img="image/new2.jpg">
-      <img src="image/new2.jpg" alt="Trà đào cam sả">
-      <h4>Trà đào cam sả</h4>
-      <p class="price">25.000đ</p>
-      <button class="add-cart">+ Thêm vào giỏ</button>
-    </div>
-  </div>
-</section>
 
 <!-- Sản phẩm nổi bật -->
 <section id="sanphamnoibat" class="section">
-  <h2>Sản Phẩm Nổi Bật</h2>
+  <h2>✨ Sản Phẩm Nổi Bật</h2>
   <div class="product-grid">
-    <div class="product-item" data-name="Bánh mì Kinh Đô" data-price="15000" data-img="image/sanpham1.jpg">
-      <img src="image/sanpham1.jpg" alt="Bánh mì Kinh Đô">
+    <div class="product-item" data-name="Bánh mì Kinh Đô" data-price="15000" data-img="image/KINHDO.png">
+      <img src="image/KINHDO.png" alt="Bánh mì Kinh Đô">
       <h4>Bánh mì Kinh Đô</h4>
       <p class="price">15.000đ</p>
       <button class="add-cart">+ Thêm vào giỏ</button>
     </div>
-    <div class="product-item" data-name="Snack phô mai" data-price="20000" data-img="image/sanpham2.jpg">
-      <img src="image/sanpham2.jpg" alt="Snack phô mai">
+    <div class="product-item" data-name="Snack phô mai" data-price="20000" data-img="image/snack pho mai.png">
+      <img src="image/snack pho mai.png" alt="Snack phô mai">
       <h4>Snack phô mai</h4>
       <p class="price">20.000đ</p>
       <button class="add-cart">+ Thêm vào giỏ</button>
     </div>
-    <div class="product-item" data-name="Coca Cola" data-price="12000" data-img="image/sanpham3.jpg">
-      <img src="image/sanpham3.jpg" alt="Coca Cola">
+    <div class="product-item" data-name="Coca Cola" data-price="12000" data-img="image/coca.webp">
+      <img src="image/coca.webp" alt="Coca Cola">
       <h4>Coca Cola</h4>
       <p class="price">12.000đ</p>
       <button class="add-cart">+ Thêm vào giỏ</button>
     </div>
-    <div class="product-item" data-name="Nước lọc Aquafina" data-price="8000" data-img="image/sanpham4.jpg">
-      <img src="image/sanpham4.jpg" alt="Nước lọc Aquafina">
+    <div class="product-item" data-name="Nước lọc Aquafina" data-price="8000" data-img="image/Aquafina.webp">
+      <img src="image/Aquafina.webp" alt="Nước lọc Aquafina">
       <h4>Nước lọc Aquafina</h4>
       <p class="price">8.000đ</p>
       <button class="add-cart">+ Thêm vào giỏ</button>
     </div>
-  </div>
+</div>
 </section>
 
 <!-- Sản phẩm bán chạy -->
 <section id="sanphambanchay" class="section">
-  <h2>Sản Phẩm Bán Chạy</h2>
+  <h2>🔥 Sản Phẩm Bán Chạy</h2>
   <div class="product-grid">
-    <div class="product-item" data-name="Bánh mì Olive" data-price="18000" data-img="image/bestsell1.jpg">
-      <img src="image/bestsell1.jpg" alt="Bánh mì Olive">
+    <div class="product-item" data-name="Bánh mì Olive" data-price="18000" data-img="image/OLIVE.png">
+      <img src="image/OLIVE.png" alt="Bánh mì Olive">
       <h4>Bánh mì Olive</h4>
       <p class="price">18.000đ</p>
       <button class="add-cart">+ Thêm vào giỏ</button>
     </div>
-    <div class="product-item" data-name="Snack tôm cay" data-price="22000" data-img="image/bestsell2.jpg">
-      <img src="image/bestsell2.jpg" alt="Snack tôm cay">
+    <div class="product-item" data-name="Snack tôm cay" data-price="22000" data-img="image/snack tom cay.webp">
+      <img src="image/snack tom cay.webp" alt="Snack tôm cay">
       <h4>Snack tôm cay</h4>
       <p class="price">22.000đ</p>
       <button class="add-cart">+ Thêm vào giỏ</button>
     </div>
-    <div class="product-item" data-name="Pepsi" data-price="12000" data-img="image/bestsell3.jpg">
-      <img src="image/bestsell3.jpg" alt="Pepsi">
+<div class="product-item" data-name="Pepsi" data-price="12000" data-img="image/pepsi.png">
+      <img src="image/pepsi.png" alt="Pepsi">
       <h4>Pepsi</h4>
       <p class="price">12.000đ</p>
       <button class="add-cart">+ Thêm vào giỏ</button>
     </div>
-    <div class="product-item" data-name="Nước lọc Lavie" data-price="8000" data-img="image/bestsell4.jpg">
-      <img src="image/bestsell4.jpg" alt="Nước lọc Lavie">
+    <div class="product-item" data-name="Nước lọc Lavie" data-price="8000" data-img="image/Lavie.png">
+      <img src="image/Lavie.png" alt="Nước lọc Lavie">
       <h4>Nước lọc Lavie</h4>
       <p class="price">8.000đ</p>
       <button class="add-cart">+ Thêm vào giỏ</button>
@@ -615,7 +722,7 @@ body {
 
 <!-- Feedback -->
 <section id="feedback" class="section">
-  <h2>Feedback của Khách Hàng</h2>
+  <h2>💬 Feedback của Khách Hàng</h2>
   <div class="product-grid">
     <div class="product-item">
       <img src="image/feedback1.jpg" alt="Nguyễn Thị Hoài Thương">
@@ -675,18 +782,18 @@ body {
   // Sidebar
   const menuBtn = document.getElementById('menuBtn');
   const sidebar = document.getElementById('sidebar');
-  const overlay = document.getElementById('overlay');
+
   const closeSidebar = document.getElementById('closeSidebar');
 
   menuBtn.onclick = () => {
     sidebar.classList.add('active');
-    overlay.classList.add('active');
+
   }
   closeSidebar.onclick = closeMenu = () => {
     sidebar.classList.remove('active');
-    overlay.classList.remove('active');
+
   }
-  overlay.onclick = closeMenu;
+
 
   // Scroll tới section
   function showCategory(id){
@@ -721,71 +828,141 @@ body {
     }
   }
 
-  function login(event){
+ function login(event){
     event.preventDefault();
-    alert("Đăng nhập thành công (demo)");
-    closeModal('loginModal');
-  }
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    const formData = new FormData();
+    formData.append('username', username);
+    formData.append('password', password);
+
+    fetch('web_admin_product/login_user.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(data.message);
+        if(data.status === 1){
+            closeModal('loginModal');
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+
+            // Hiển thị tên user đăng nhập trên trang
+            const userLinks = document.querySelector('.top-bar .user-links');
+            userLinks.innerHTML = `Xin chào, ${data.username} | <a href="#" id="logoutLink">Đăng xuất</a> | <a href="giohang.html" class="cart-btn">🛒 Giỏ hàng</a>`;
+
+            // Thêm chức năng đăng xuất
+            document.getElementById('logoutLink').onclick = e => {
+                e.preventDefault();
+                fetch('logout_user.php')
+                .then(()=> location.reload());
+            };
+        }
+    })
+    .catch(err => console.error(err));
+}
+
 
   function register(event){
     event.preventDefault();
-    alert("Đăng ký thành công (demo)");
-    closeModal('registerModal');
-  }
+    const username = document.getElementById('regUsername').value;
+    const email = document.getElementById('regEmail').value;
+    const password = document.getElementById('regPassword').value;
 
-  // Thêm sản phẩm vào giỏ hàng (lưu vào localStorage)
+    const formData = new FormData();
+    formData.append('username', username);
+    formData.append('email', email);
+    formData.append('password', password);
+
+    fetch('web_admin_product/register_user.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(data.message);
+        if(data.status === 1){
+            closeModal('registerModal');
+            document.getElementById('regUsername').value = '';
+            document.getElementById('regEmail').value = '';
+            document.getElementById('regPassword').value = '';
+        }
+    })
+    .catch(err => console.error(err));
+}
+
+
+  // Thêm sản phẩm vào giỏ hàng (localStorage)
   const addCartBtns = document.querySelectorAll('.add-cart');
-  addCartBtns.forEach(btn => {
-    btn.addEventListener('click', e => {
-      const item = e.target.closest('.product-item');
-      const product = {
-        name: item.dataset.name,
-        price: item.dataset.price,
-        img: item.dataset.img
-      };
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.push(product);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      alert(`Đã thêm "${product.name}" vào giỏ hàng!`);
-    });
-  });
 
-  // 🎞️ Slider ảnh có hiệu ứng chuyển mượt
+addCartBtns.forEach(btn => {
+  btn.addEventListener('click', e => {
+    const item = e.target.closest('.product-item');
+    const product = {
+      name: item.dataset.name,
+      price: Number(item.dataset.price), // chuyển thành số
+      img: item.dataset.img,
+      quantity: 1                          // mặc định số lượng = 1
+    };
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Nếu sản phẩm đã có trong giỏ -> tăng số lượng
+    const existed = cart.find(p => p.name === product.name && p.img === product.img);
+    if (existed) {
+      existed.quantity += 1;
+    } else {
+      cart.push(product);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`Đã thêm "${product.name}" vào giỏ hàng!`);
+  });
+});
+
+
+
+  /* ============================
+        SLIDER SỬA LỖI
+  ============================ */
   const imgs = document.querySelectorAll('.sider img');
   const dots = document.querySelectorAll('.dot');
   let currentIndex = 0;
-  const interval = 4000;
+  const interval = 3000;
 
+  // Hiển thị slide theo index
   function showSlide(index) {
     imgs.forEach((img, i) => {
-      img.classList.toggle('active', i === index);
-      dots[i].classList.toggle('active', i === index);
+      img.style.opacity = i === index ? 1 : 0;
+    });
+
+    dots.forEach((dot, i) => {
+      dot.className = dot.className.replace('active', '');
+      if (i === index) dot.classList.add('active');
     });
   }
 
-  function nextSlide() {
+  // Tự động chuyển slide
+  function autoSlide() {
     currentIndex = (currentIndex + 1) % imgs.length;
     showSlide(currentIndex);
   }
 
-  function changeSlide(index) {
-    currentIndex = index;
+  let timer = setInterval(autoSlide, interval);
+
+  // Bấm dot để đổi slide
+  function changeSlide(n) {
+    clearInterval(timer); // reset lại timer
+    currentIndex = n;
     showSlide(currentIndex);
-    clearInterval(timer);
-    timer = setInterval(nextSlide, interval);
+    timer = setInterval(autoSlide, interval);
   }
 
+  // hiển thị slide đầu tiên
   showSlide(currentIndex);
-  let timer = setInterval(nextSlide, interval);
-  window.addEventListener("scroll", function() {
-  const navbar = document.querySelector(".navbar");
-  const logoHeight = document.querySelector(".logo").offsetHeight;
-  if (window.scrollY > logoHeight) {
-    navbar.classList.add("sticky");
-  } else {
-    navbar.classList.remove("sticky");
-  }
-});
 </script>
+
 </body>
 </html>
