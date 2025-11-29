@@ -12,8 +12,8 @@
   </header>
 
   <nav class="navbar">
-    <a href="Webbandoandouong.html">Trang Chủ</a>
-    <a href="gioithieu.html">Giới Thiệu</a>
+    <a href="Webbandoandouong.php">Trang Chủ</a>
+    <a href="gioithieu.php">Giới Thiệu</a>
     <a href="sanpham.php">Sản Phẩm</a>
   </nav>
 
@@ -35,7 +35,7 @@
 
     <div class="cart-summary">
       <h3>Tổng cộng: <span id="cart-total">0</span>đ</h3>
-      <a href="thanhtoan.html" class="checkout-btn">Thanh toán</a>
+      <a href="thanhtoan.php" class="checkout-btn">Thanh toán</a>
     </div>
   </div>
 
