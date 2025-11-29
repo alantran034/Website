@@ -271,16 +271,16 @@
   <header class="main-header">
     <img src="image/LOGO.jpg" class="logo" alt="Berry & Brew">
     <nav class="navbar">
-      <a href="Webbandoandouong.html">Trang Chủ</a>
-      <a href="gioithieu.html">Giới Thiệu</a>
+      <a href="Webbandoandouong.php">Trang Chủ</a>
+      <a href="gioithieu.php">Giới Thiệu</a>
       <a href="sanpham.php">Sản Phẩm</a>
-      <a href="giohang.html">Giỏ Hàng</a>
+      <a href="giohang.php">Giỏ Hàng</a>
     </nav>
     <div class="header-right">
       <div class="search-box">
         <input type="text" id="search-input" placeholder="Tìm kiếm..." onkeyup="searchProducts()">
       </div>
-      <a href="giohang.html" class="cart-btn">🛒</a>
+      <a href="giohang.php" class="cart-btn">🛒</a>
     </div>
   </header>
   
