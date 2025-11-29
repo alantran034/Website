@@ -1,34 +1,20 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/database.css">
 <title>Berry & Brew - Cake & Dessert</title>
+
 <style>
-  body {
+ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #fff8f6;
     color: #333;
-  }
-
-  /* Thanh trên cùng */
-  .top-bar {
-    background: #ffe6eb;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px 30px;
-    font-size: 14px;
-  }
-
-  .top-bar .user-links a {
-    text-decoration: none;
-    color: #d6336c;
-    font-weight: 500;
-    margin-left: 15px;
-    transition: 0.3s;
-    cursor: pointer;
   }
 
   .cart-btn {
@@ -38,49 +24,15 @@
     border-radius: 20px;
     text-decoration: none;
   }
+  .cart-btn:hover {
+    background: #ff6f91;
+  }
 
   /* Header */
   header {
     background: #ffccd5;
     text-align: center;
     padding: 15px 0;
-  }
-
-  .logo {
-    width: 120px;
-    border-radius: 50%;
-    box-shadow: 0 0 8px rgba(255,182,193,0.6);
-  }
-
-  .search-box {
-    margin-top: 10px;
-  }
-
-  .search-box input {
-    padding: 8px 15px;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-    outline: none;
-    width: 250px;
-  }
-
-  /* Navbar */
-  .navbar {
-    background: #ffb6c1;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    padding: 10px 0;
-  }
-
-  .navbar a {
-    text-decoration: none;
-    color: #cfbebe;
-    font-weight: 600;
-  }
-
-  .navbar a:hover {
-    color: white;
   }
 
   /* Nút mở danh mục (3 sọc ngang) */
@@ -94,7 +46,6 @@
     border-radius: 8px;
   }
   
-
   /* Sidebar */
   .sidebar {
     position: fixed;
@@ -146,7 +97,6 @@
     cursor: pointer;
     color: #d6336c;
   }
-
 
   /* Nội dung chính */
   .section {
@@ -219,22 +169,35 @@
   }
 
   /* Modal đăng nhập/đăng ký */
+
   .modal {
-    display: none;
+    display: none;                 /* bật bằng JS: display:flex */
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.4);
+    z-index: 1400;
+    inset: 0;                      /* left:0; top:0; right:0; bottom:0; */
+    background-color: rgba(0,0,0,0.45);
     justify-content: center;
     align-items: center;
-    z-index: 2000;
+    padding: 20px;                 /* để modal-content có khoảng cách khi màn hình nhỏ */
   }
-  
 
-.modal.active { 
-    display: flex;
-}
-
+  .close-btn {
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ff8fa3;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  }
   .modal-content {
     position: relative;
     background: #fff;
@@ -244,6 +207,11 @@
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
+
+.modal.active { 
+    display: flex;
+}
+
 
   .modal-content h3 {
     color: #d6336c;
@@ -332,21 +300,6 @@
   .dot:hover {
     background-color: #717171;
   }
-</style>
-</head>
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Giới thiệu - Berry & Brew</title>
-<style>
-  body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #fff8f6;
-    color: #333;
-  }
 
   /* ===== THANH TRÊN CÙNG ===== */
   .top-bar {
@@ -369,20 +322,6 @@
 
   .top-bar a:hover {
     color: #ff6f91;
-  }
-
-  .cart-btn {
-    background: #ff8fa3;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 20px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-  }
-
-  .cart-btn:hover {
-    background: #ff6f91;
   }
 
   /* ===== HEADER ===== */
@@ -438,176 +377,12 @@
     color: #fff;
   }
 
-  /* ===== NỘI DUNG GIỚI THIỆU ===== */
-  .about-section {
-    max-width: 900px;
-    margin: 40px auto;
-    background: #ffe6eb;
-    padding: 30px 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    text-align: center;
-    line-height: 1.8;
-  }
-
-  .about-section h2 {
-    color: #d6336c;
-    margin-bottom: 20px;
-    font-size: 26px;
-  }
-
-  .about-section p {
-    font-size: 16px;
-    color: #555;
-  }
-
-  .about-section img {
-    width: 80%;
-    max-width: 400px;
-    border-radius: 15px;
-    margin-top: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-
-  /* ===== FOOTER ===== */
-  footer {
-    text-align: center;
-    padding: 15px;
-    color: #777;
-    font-size: 14px;
-    margin-top: 30px;
-  }
-
-  /* ========== MODAL (Sửa) ========== */
-  .modal {
-    display: none;                 /* bật bằng JS: display:flex */
-    position: fixed;
-    z-index: 1400;
-    inset: 0;                      /* left:0; top:0; right:0; bottom:0; */
-    background-color: rgba(0,0,0,0.45);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;                 /* để modal-content có khoảng cách khi màn hình nhỏ */
-  }
-
-  /* Khi modal mở, thêm class lên body để khóa scroll */
-  body.modal-open {
-    overflow: hidden;
-  }
-
-  .modal-content {
-    position: relative;
-    background: white;
-    padding: 28px 26px;
-    border-radius: 14px;
-    width: 400px;
-    max-width: 100%;
-    text-align: left;
-    position: relative;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-    animation: fadeInUp 0.28s ease both;
-  }
-
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(-12px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .modal-content h2 {
-    text-align: center;
-    margin-bottom: 18px;
-    color: #d6336c;
-  }
-
-  .modal-content form {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .modal-content label {
-    font-weight: 500;
-    margin-bottom: 6px;
-  }
-
-  .modal-content input[type="text"],
-  .modal-content input[type="password"],
-  .modal-content input[type="email"]{
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    margin-bottom: 12px;
-    font-size: 14px;
-    box-sizing: border-box;
-  }
-
-  .modal-content input:focus {
-    border-color: #ff8fa3;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(255,143,163,0.08);
-  }
-
-  .modal-content .btn {
-    width: 100%;
-    background: #ff8fa3;
-    color: white;
-    padding: 10px;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 15px;
-    margin-top: 8px;
-    transition: background 0.2s;
-  }
-
-  .modal-content .btn:hover {
-    background: #ff6f91;
-  }
-
-  /* Nút đóng: tròn, màu hồng nhỏ, nằm góc trên phải */
-  .close-btn {
-    position: absolute;
-    top: -18px;
-    right: -18px;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: #ff8fa3;
-    color: #fff;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-  }
-
-  .modal-content p {
-    text-align: center;
-    font-size: 14px;
-    margin-top: 10px;
-  }
-
-  .modal-content a {
-    text-decoration: none;
-    color: #d6336c;
-  }
-
-  .modal-content a:hover {
-    text-decoration: underline;
-  }
-
   /* Responsive nhỏ */
   @media (max-width: 480px) {
     .modal-content { padding: 18px; width: 100%; border-radius: 12px; }
     .close-btn { top: -14px; right: -14px; width: 36px; height: 36px; font-size: 18px; }
   }
-  .dot.active, /* CHỈ ÁP DỤNG CHO CHẤM TRÒN CÓ CLASS ACTIVE */
- .dot:hover {
-  background-color: #717171;
- }
+
 </style>
 </head>
 <body>
@@ -618,7 +393,7 @@
   <div class="user-links">
     <a id="loginLink">Đăng nhập</a> |
     <a id="registerLink">Đăng ký</a>
-    <a href="giohang.html" class="cart-btn">🛒 Giỏ hàng</a>
+    <a href="giohang.php" class="cart-btn">🛒 Giỏ hàng</a>
   </div>
 </div>
 
@@ -631,8 +406,8 @@
 
 <!-- Navbar -->
 <nav class="navbar">
-  <a href="Webbandoandouong.html">Trang chủ</a>
-  <a href="gioithieu.html">Giới thiệu</a>
+  <a href="Webbandoandouong.php">Trang chủ</a>
+  <a href="gioithieu.php">Giới thiệu</a>
   <a href="sanpham.php">Sản phẩm</a>
 </nav>
 <!-- Slider hình ảnh -->
@@ -959,9 +734,25 @@ addCartBtns.forEach(btn => {
 
   // hiển thị slide đầu tiên
   showSlide(currentIndex);
+
+  // Khi tải trang → kiểm tra trạng thái đăng nhập
+document.addEventListener("DOMContentLoaded", () => {
+  fetch('web_admin_product/check_login.php')
+  .then(res => res.json())
+  .then(data => {
+    if(data.logged_in){
+      const userLinks = document.querySelector('.top-bar .user-links');
+      userLinks.innerHTML = `Xin chào, ${data.username} | <a href="#" id="logoutLink">Đăng xuất</a> | <a href="giohang.php" class="cart-btn">🛒 Giỏ hàng</a>`;
+
+      document.getElementById('logoutLink').onclick = e => {
+        e.preventDefault();
+        fetch('web_admin_product/logout_user.php')
+        .then(() => location.reload());
+      };
+    }
+  });
+});
 </script>
 
 </body>
 </html>
-
-
