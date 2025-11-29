@@ -248,7 +248,7 @@
 
 <!-- Thanh trên cùng -->
 <div class="top-bar">
-  <a href="giohang.html" class="cart-btn">🛒 Giỏ hàng</a>
+  <a href="giohang.php" class="cart-btn">🛒 Giỏ hàng</a>
 </div>
 
 <!-- Header -->
@@ -260,8 +260,8 @@
 
 <!-- Menu -->
 <nav class="navbar">
-  <a href="Webbandoandouong.html">Trang Chủ</a>
-  <a href="gioithieu.html">Giới Thiệu</a>
+  <a href="Webbandoandouong.php">Trang Chủ</a>
+  <a href="gioithieu.php">Giới Thiệu</a>
   <a href="sanpham.php">Sản Phẩm</a>
 </nav>
 
@@ -372,4 +372,3 @@ function register(event){
 
 </body>
 </html>
-
